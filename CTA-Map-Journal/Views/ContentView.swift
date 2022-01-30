@@ -1,6 +1,7 @@
 //
 //  ContentView.swift
 //  CTA-Map-Journal
+//  First Commit!
 //
 //  Created by Ivette Fernandez on 1/30/22.
 //
