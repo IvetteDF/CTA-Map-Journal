@@ -15,7 +15,7 @@ struct CTA_Map_JournalApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePageView()
         }
     }
 }

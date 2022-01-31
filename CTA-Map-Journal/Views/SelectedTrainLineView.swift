@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct SelectedTrainLineView: View {
+    
+    @ObservedObject var trainStationViewModel = TrainStationViewModel()
+    @State var selectedTrainLine: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Train Line")
+            .onAppear {
+                trainStationViewModel.readFile()
+            }
+        List(trainStationViewModel.trainStations) { trainStation in
+            Text(trainStation.station_name)
+        }
     }
 }
 
@@ -18,3 +28,4 @@ struct SelectedTrainLineView_Previews: PreviewProvider {
         SelectedTrainLineView()
     }
 }
+

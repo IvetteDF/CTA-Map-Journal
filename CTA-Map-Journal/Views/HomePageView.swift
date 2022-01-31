@@ -57,12 +57,14 @@ struct HomePageView: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
             }
-            List {
-                ForEach(trainLines.sorted(by: >), id: \.key) {key, value in
-                        Text(value)
-                        .listRowBackground(Color(.systemGray5))
-                    
-
+            NavigationView {
+                List {
+                    ForEach(trainLines.sorted(by: <), id: \.key) {key, value in
+                        NavigationLink(destination: SelectedTrainLineView()) {
+                            Text(value)
+                                .listRowBackground(Color(.systemGray5))
+                        }
+                    }
                 }
             }
             

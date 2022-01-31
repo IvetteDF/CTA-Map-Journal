@@ -12,14 +12,17 @@
 		23043BDD27A746A400F9EDCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23043BDC27A746A400F9EDCF /* Assets.xcassets */; };
 		23043BE027A746A400F9EDCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23043BDF27A746A400F9EDCF /* Preview Assets.xcassets */; };
 		23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BE827A748C800F9EDCF /* HomePageView.swift */; };
-		23043BEB27A748FA00F9EDCF /* SelectedTrainLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BEA27A748FA00F9EDCF /* SelectedTrainLineView.swift */; };
 		23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */; };
 		23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */; };
 		23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF027A7499300F9EDCF /* JournalEntry.swift */; };
 		23043BF527A74B5600F9EDCF /* NearestTrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */; };
-		23043BF727A74CC100F9EDCF /* JournalEntryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF627A74CC100F9EDCF /* JournalEntryFunctions.swift */; };
+		23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */; };
 		23043BF927A74E4800F9EDCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */; };
 		23043BFC27A74F6400F9EDCF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 23043BFB27A74F6400F9EDCF /* FirebaseFirestore */; };
+		23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BFE27A83FF000F9EDCF /* TrainStation.swift */; };
+		23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */; };
+		2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */; };
+		2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2341DD7927A88C9B004E32CC /* CTALStops.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,14 +32,17 @@
 		23043BDC27A746A400F9EDCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23043BDF27A746A400F9EDCF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23043BE827A748C800F9EDCF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		23043BEA27A748FA00F9EDCF /* SelectedTrainLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainLineView.swift; sourceTree = "<group>"; };
 		23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainStationView.swift; sourceTree = "<group>"; };
 		23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalEntryView.swift; sourceTree = "<group>"; };
 		23043BF027A7499300F9EDCF /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTrainStation.swift; sourceTree = "<group>"; };
-		23043BF627A74CC100F9EDCF /* JournalEntryFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryFunctions.swift; sourceTree = "<group>"; };
+		23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryViewModel.swift; sourceTree = "<group>"; };
 		23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CTA-Map-Journal/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "CTA-L-Stops.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		23043BFE27A83FF000F9EDCF /* TrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStation.swift; sourceTree = "<group>"; };
+		23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationViewModel.swift; sourceTree = "<group>"; };
+		2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedTrainLineView.swift; sourceTree = "<group>"; };
+		2341DD7927A88C9B004E32CC /* CTALStops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStops.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				23043BD827A7469B00F9EDCF /* CTA_Map_JournalApp.swift */,
+				2341DD7927A88C9B004E32CC /* CTALStops.json */,
 				23043BDC27A746A400F9EDCF /* Assets.xcassets */,
 				23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */,
 				23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */,
@@ -95,7 +102,7 @@
 			children = (
 				23043BDA27A7469B00F9EDCF /* ContentView.swift */,
 				23043BE827A748C800F9EDCF /* HomePageView.swift */,
-				23043BEA27A748FA00F9EDCF /* SelectedTrainLineView.swift */,
+				2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */,
 				23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */,
 				23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */,
 			);
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				23043BF027A7499300F9EDCF /* JournalEntry.swift */,
+				23043BFE27A83FF000F9EDCF /* TrainStation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,7 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */,
-				23043BF627A74CC100F9EDCF /* JournalEntryFunctions.swift */,
+				23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */,
+				23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */,
 				23043BE027A746A400F9EDCF /* Preview Assets.xcassets in Resources */,
 				23043BDD27A746A400F9EDCF /* Assets.xcassets in Resources */,
 				23043BF927A74E4800F9EDCF /* GoogleService-Info.plist in Resources */,
@@ -196,15 +206,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23043BEB27A748FA00F9EDCF /* SelectedTrainLineView.swift in Sources */,
+				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
 				23043BDB27A7469B00F9EDCF /* ContentView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,
+				23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */,
 				23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */,
 				23043BD927A7469B00F9EDCF /* CTA_Map_JournalApp.swift in Sources */,
 				23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */,
 				23043BF527A74B5600F9EDCF /* NearestTrainStation.swift in Sources */,
 				23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */,
-				23043BF727A74CC100F9EDCF /* JournalEntryFunctions.swift in Sources */,
+				23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */,
+				2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
