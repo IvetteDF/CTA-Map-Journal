@@ -36,6 +36,7 @@
 		23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTrainStation.swift; sourceTree = "<group>"; };
 		23043BF627A74CC100F9EDCF /* JournalEntryFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryFunctions.swift; sourceTree = "<group>"; };
 		23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CTA-Map-Journal/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "CTA-L-Stops.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 				23043BD827A7469B00F9EDCF /* CTA_Map_JournalApp.swift */,
 				23043BDC27A746A400F9EDCF /* Assets.xcassets */,
 				23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */,
+				23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */,
 				23043BE727A747E000F9EDCF /* Models */,
 				23043BE627A747D600F9EDCF /* Views */,
 				23043BF327A74AC900F9EDCF /* ViewModels */,
