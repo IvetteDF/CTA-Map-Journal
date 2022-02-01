@@ -22,54 +22,50 @@ struct HomePageView: View {
         "o": "Orange Line"]
     
     var body: some View {
-        VStack (spacing: 0) {
-            Text("CTA Map Journal")
-                .font(.title)
-            .fontWeight(.bold)
-            Spacer()
-            ZStack {
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(maxWidth: .infinity, maxHeight: 50)
-                HStack {
-                    Text("Find Nearest Station: ")
+        NavigationView {
+            VStack (spacing: 0) {
+                Spacer()
+                    .navigationTitle("CTA Map Journal")
+                ZStack {
+                    Rectangle()
+                        .fill(Color.black)
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                    HStack {
+                        Text("Find Nearest Station: ")
+                            .font(.headline)
+                            .foregroundColor(Color.white)
+                            
+                        LocationButton (.currentLocation) {
+                            // use function from NearestTrainStation
+                        } .foregroundColor(.white)
+                        
+                    }
+                }
+                ZStack {
+                    Rectangle()
+                        .fill(Color(.systemGray))
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                    Text("Placeholder \(nearestTrainStation)")
+                }
+                ZStack (alignment: .leading) {
+                    Rectangle()
+                        .fill(Color.black)
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                    Text("Select a Train Line:")
                         .font(.headline)
                         .foregroundColor(Color.white)
-                        
-                    LocationButton (.currentLocation) {
-                        // use function from NearestTrainStation
-                    } .foregroundColor(.white)
-                    
+                        .multilineTextAlignment(.leading)
                 }
-            }
-            ZStack {
-                Rectangle()
-                    .fill(Color(.systemGray))
-                    .frame(maxWidth: .infinity, maxHeight: 50)
-                Text("Placeholder \(nearestTrainStation)")
-            }
-            ZStack (alignment: .leading) {
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(maxWidth: .infinity, maxHeight: 50)
-                Text("Select a Train Line:")
-                    .font(.headline)
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.leading)
-            }
-            NavigationView {
                 List {
                     ForEach(trainLines.sorted(by: <), id: \.key) {key, value in
-                        NavigationLink(destination: SelectedTrainLineView()) {
+                        NavigationLink(destination: SelectedTrainLineView(selectedTrainLine: value)) {
                             Text(value)
                                 .listRowBackground(Color(.systemGray5))
                         }
                     }
                 }
+                Spacer()
             }
-            
-            Spacer()
-
         }
     }
 }

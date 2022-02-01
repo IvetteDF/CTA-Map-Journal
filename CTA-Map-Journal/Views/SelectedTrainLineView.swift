@@ -10,22 +10,26 @@ import SwiftUI
 struct SelectedTrainLineView: View {
     
     @ObservedObject var trainStationViewModel = TrainStationViewModel()
-    @State var selectedTrainLine: String = ""
+    @State var selectedTrainLine: String
     
     var body: some View {
-        Text("Train Line")
+        
+        // add logic to change color of heading based on selectedTrainLine
+        Spacer()
+            .navigationTitle(selectedTrainLine)
             .onAppear {
-                trainStationViewModel.readFile()
-            }
+                trainStationViewModel.makeTrainStations()            }
         List(trainStationViewModel.trainStations) { trainStation in
-            Text(trainStation.station_name)
+            NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation.station_name)) {
+                Text(trainStation.station_name)
+            }
         }
     }
 }
 
-struct SelectedTrainLineView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectedTrainLineView()
-    }
-}
+//struct SelectedTrainLineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectedTrainLineView()
+//    }
+//}
 

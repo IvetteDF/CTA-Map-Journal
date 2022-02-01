@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct JournalEntry: Identifiable {
+    var id: String
+    var title: String
+    var date: String
+    var body: String
+}

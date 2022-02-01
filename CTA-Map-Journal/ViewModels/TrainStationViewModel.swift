@@ -10,8 +10,10 @@ import Foundation
 class TrainStationViewModel: ObservableObject {
 
     @Published var trainStations: [TrainStation] = []
-
-    func readFile() {
+    
+    // add logic to remove duplicates
+    // add logic to select stations based on selectedTrainLine
+    func makeTrainStations() {
         if let url = Bundle.main.url(forResource: "CTALStops", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
