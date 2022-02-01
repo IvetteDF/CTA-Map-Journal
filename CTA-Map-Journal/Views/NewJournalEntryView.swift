@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewJournalEntryView: View {
 //    private var journalEntry: JournalEntry
+    @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @State var selectedTrainStation: String
     
     @State var title = ""
@@ -50,10 +51,10 @@ struct NewJournalEntryView: View {
             .padding(.horizontal)
             .textFieldStyle(RoundedBorderTextFieldStyle())
         TextEditor(text: $entry)
-            .frame(width: 380.0)
+            .frame(width: 350.0)
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
         Button("Submit Entry") {
-            // call post method from JournalEntryViewModel
+            journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation)
         }
     }
 }

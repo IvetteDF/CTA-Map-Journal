@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SelectedTrainStationView: View {
+    @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @State var selectedTrainStation: String
     @State private var newJournalEntry: Bool = false
     
@@ -25,10 +26,18 @@ struct SelectedTrainStationView: View {
             Text("Journal Entries")
                 .font(.headline)
                 .foregroundColor(Color.white)
+                .onAppear {
+                    journalEntryViewModel.getJournalEntries(selectedTrainStation: selectedTrainStation)
+                }
         }
-        List {
-            // use journalEntries from JournalEntryViewModel to list past journal entries
-            Text("Placeholder")
+        List(journalEntryViewModel.journalEntries) { journalEntry in
+//            let selectedJournalEntryId = journalEntry.id
+            NavigationLink(destination: SelectedJournalEntryView(selectedJournalEntry: journalEntry)) {
+                HStack {
+                    Text(journalEntry.date)
+                    Text(journalEntry.title)
+                }
+            }
         }
     }
 }

@@ -23,6 +23,7 @@
 		23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */; };
 		2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */; };
 		2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2341DD7927A88C9B004E32CC /* CTALStops.json */; };
+		2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationViewModel.swift; sourceTree = "<group>"; };
 		2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedTrainLineView.swift; sourceTree = "<group>"; };
 		2341DD7927A88C9B004E32CC /* CTALStops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStops.json; sourceTree = "<group>"; };
+		2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedJournalEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */,
 				23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */,
 				23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */,
+				2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
 				23043BDB27A7469B00F9EDCF /* ContentView.swift in Sources */,
+				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,
 				23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */,
 				23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */,
