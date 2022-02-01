@@ -30,7 +30,9 @@ struct SelectedTrainStationView: View {
                     journalEntryViewModel.getJournalEntries(selectedTrainStation: selectedTrainStation)
                 }
         }
-        List(journalEntryViewModel.journalEntries) { journalEntry in
+        List(journalEntryViewModel.journalEntries.sorted(by: { lhs, rhs in
+            return lhs.timestamp.seconds > rhs.timestamp.seconds
+        })) { journalEntry in
 //            let selectedJournalEntryId = journalEntry.id
             NavigationLink(destination: SelectedJournalEntryView(selectedJournalEntry: journalEntry)) {
                 HStack {
