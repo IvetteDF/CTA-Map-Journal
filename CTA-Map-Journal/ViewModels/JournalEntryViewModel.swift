@@ -31,4 +31,6 @@ class JournalEntryViewModel: ObservableObject {
 //            }
 //        }
 //    }
+    
+//    func postJournalEntry() {}
 }

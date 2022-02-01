@@ -14,7 +14,7 @@ struct SelectedTrainStationView: View {
     var body: some View {
         Spacer()
             .navigationTitle(selectedTrainStation)
-        NavigationLink(destination: NewJournalEntryView(), isActive: $newJournalEntry) {EmptyView()}
+        NavigationLink(destination: NewJournalEntryView(selectedTrainStation: selectedTrainStation), isActive: $newJournalEntry) {EmptyView()}
         Button("New Journal Entry") {
             newJournalEntry = true
         }
