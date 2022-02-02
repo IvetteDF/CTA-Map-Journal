@@ -11,8 +11,6 @@ class TrainStationViewModel: ObservableObject {
 
     @Published var trainStations: [TrainStation] = []
     
-    // add logic to remove duplicates
-    // add logic to select stations based on selectedTrainLine
     func makeTrainStations(selectedTrainLine: String) {
         if let url = Bundle.main.url(forResource: "CTALStops", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
@@ -26,6 +24,7 @@ class TrainStationViewModel: ObservableObject {
                     if (trainStation.station_name != prevTrainStationName) && (trainStation.trainLines[trainStationColor]! == true) {
                         self.trainStations.append(trainStation)
                         prevTrainStationName = trainStation.station_name
+                        print(trainStation.location)
                     }
                 }
             }
