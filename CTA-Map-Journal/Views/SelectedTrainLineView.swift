@@ -18,7 +18,7 @@ struct SelectedTrainLineView: View {
         Spacer()
             .navigationTitle(selectedTrainLine)
             .onAppear {
-                trainStationViewModel.makeTrainStations()            }
+                trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
         List(trainStationViewModel.trainStations) { trainStation in
             NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation.station_name)) {
                 Text(trainStation.station_name)

@@ -24,6 +24,7 @@
 		2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */; };
 		2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2341DD7927A88C9B004E32CC /* CTALStops.json */; };
 		2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */; };
+		2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341DD7D27A9FF9D004E32CC /* TrainLines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedTrainLineView.swift; sourceTree = "<group>"; };
 		2341DD7927A88C9B004E32CC /* CTALStops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStops.json; sourceTree = "<group>"; };
 		2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedJournalEntryView.swift; sourceTree = "<group>"; };
+		2341DD7D27A9FF9D004E32CC /* TrainLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainLines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				23043BF027A7499300F9EDCF /* JournalEntry.swift */,
 				23043BFE27A83FF000F9EDCF /* TrainStation.swift */,
+				2341DD7D27A9FF9D004E32CC /* TrainLines.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */,
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
 				23043BDB27A7469B00F9EDCF /* ContentView.swift in Sources */,
 				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,

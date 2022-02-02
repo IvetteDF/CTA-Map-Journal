@@ -11,15 +11,15 @@ import MapKit
 
 struct HomePageView: View {
     @State var nearestTrainStation = ""
-    var trainLines: [String:String] = [
-        "red": "Red Line",
-        "blue": "Blue Line",
-        "g": "Green Line",
-        "brn": "Brown Line",
-        "p": "Purple Line",
-        "y": "Yellow Line",
-        "pnk": "Pink Line",
-        "o": "Orange Line"]
+    let trainLines: [String:String] = [
+        "Red Line": "red" ,
+        "Blue Line": "blue",
+        "Green Line": "g",
+        "Brown Line": "brn",
+        "Purple Line": "p",
+        "Yellow Line": "y",
+        "Pink Line": "pnk",
+        "Orange Line": "o"]
     
     var body: some View {
         NavigationView {
@@ -57,9 +57,9 @@ struct HomePageView: View {
                         .multilineTextAlignment(.leading)
                 }
                 List {
-                    ForEach(trainLines.sorted(by: <), id: \.key) {key, value in
-                        NavigationLink(destination: SelectedTrainLineView(selectedTrainLine: value)) {
-                            Text(value)
+                    ForEach(TrainLines.trainLinesDict.sorted(by: <), id: \.key) {key, value in
+                        NavigationLink(destination: SelectedTrainLineView(selectedTrainLine: key)) {
+                            Text(key)
                                 .listRowBackground(Color(.systemGray5))
                         }
                     }
