@@ -15,7 +15,7 @@
 		23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */; };
 		23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */; };
 		23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF027A7499300F9EDCF /* JournalEntry.swift */; };
-		23043BF527A74B5600F9EDCF /* NearestTrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */; };
+		23043BF527A74B5600F9EDCF /* NearestTrainStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF427A74B5600F9EDCF /* NearestTrainStationViewModel.swift */; };
 		23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */; };
 		23043BF927A74E4800F9EDCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */; };
 		23043BFC27A74F6400F9EDCF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 23043BFB27A74F6400F9EDCF /* FirebaseFirestore */; };
@@ -37,7 +37,7 @@
 		23043BEC27A7492800F9EDCF /* SelectedTrainStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrainStationView.swift; sourceTree = "<group>"; };
 		23043BEE27A7496F00F9EDCF /* NewJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalEntryView.swift; sourceTree = "<group>"; };
 		23043BF027A7499300F9EDCF /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
-		23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTrainStation.swift; sourceTree = "<group>"; };
+		23043BF427A74B5600F9EDCF /* NearestTrainStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTrainStationViewModel.swift; sourceTree = "<group>"; };
 		23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryViewModel.swift; sourceTree = "<group>"; };
 		23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CTA-Map-Journal/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "CTA-L-Stops.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
@@ -127,7 +127,7 @@
 		23043BF327A74AC900F9EDCF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				23043BF427A74B5600F9EDCF /* NearestTrainStation.swift */,
+				23043BF427A74B5600F9EDCF /* NearestTrainStationViewModel.swift */,
 				23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */,
 				23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */,
 			);
@@ -221,7 +221,7 @@
 				23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */,
 				23043BD927A7469B00F9EDCF /* CTA_Map_JournalApp.swift in Sources */,
 				23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */,
-				23043BF527A74B5600F9EDCF /* NearestTrainStation.swift in Sources */,
+				23043BF527A74B5600F9EDCF /* NearestTrainStationViewModel.swift in Sources */,
 				23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */,
 				23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */,
 				2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */,
