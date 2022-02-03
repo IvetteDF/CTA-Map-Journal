@@ -24,6 +24,8 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
     
     func requestLocationAndFindNearestTrainStation() {
         locationManager.requestLocation()
+        print("button clicked")
+        print(self.nearestTrainStation)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

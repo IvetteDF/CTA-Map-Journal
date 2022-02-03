@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import SwiftUI
 
 class JournalEntryViewModel: ObservableObject {
     
@@ -38,12 +39,16 @@ class JournalEntryViewModel: ObservableObject {
                     }
                 }
             } else {
-                print(error)
+                print(error!)
             }
         }
     }
     
     func addJournalEntry(title: String, entry: String, station_name: String) {
+        // emotion API call stuff - works! now do I put the addJournalEntry stuff inside its completion handler? if not, how to async??
+//        let emotionDataViewModel = EmotionDataViewModel()
+//        emotionDataViewModel.getEmotionScores(entry: entry)
+        
         // add a timestamp
         let timestamp: Date = Date()
         
@@ -56,7 +61,7 @@ class JournalEntryViewModel: ObservableObject {
                 // add logic to clear text field and text editor if success
                 // add logic to include notification of successful post
             } else {
-                print(error)
+                print(error!)
             }
         }
     }

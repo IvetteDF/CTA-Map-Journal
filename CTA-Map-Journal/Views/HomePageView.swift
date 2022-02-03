@@ -10,16 +10,8 @@ import CoreLocationUI
 import MapKit
 
 struct HomePageView: View {
-    @State var nearestTrainStation = ""
-    let trainLines: [String:String] = [
-        "Red Line": "red" ,
-        "Blue Line": "blue",
-        "Green Line": "g",
-        "Brown Line": "brn",
-        "Purple Line": "p",
-        "Yellow Line": "y",
-        "Pink Line": "pnk",
-        "Orange Line": "o"]
+//    @State var nearestTrainStation = ""
+    @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     
     var body: some View {
         NavigationView {
@@ -36,7 +28,7 @@ struct HomePageView: View {
                             .foregroundColor(Color.white)
                             
                         LocationButton (.currentLocation) {
-                            // use function from NearestTrainStation
+                            nearestTrainStationViewModel.requestLocationAndFindNearestTrainStation()
                         } .foregroundColor(.white)
                         
                     }
@@ -45,7 +37,8 @@ struct HomePageView: View {
                     Rectangle()
                         .fill(Color(.systemGray))
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                    Text("Placeholder \(nearestTrainStation)")
+                    // add NavigationLink to SelectedTrainStationView of nearestTrainStation
+                    Text(nearestTrainStationViewModel.nearestTrainStation)
                 }
                 ZStack (alignment: .leading) {
                     Rectangle()

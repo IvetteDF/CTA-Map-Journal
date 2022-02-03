@@ -16,7 +16,8 @@ struct JSONData: Decodable {
 struct TrainStation: Decodable, Identifiable {
     let stop_id: String
     var id: String { stop_id }
-    let station_name: String
+    let station_descriptive_name: String
+    var station_name: String { station_descriptive_name }
     let location: Location
     let red: Bool
     let blue: Bool

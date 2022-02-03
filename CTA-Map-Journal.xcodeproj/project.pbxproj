@@ -25,6 +25,9 @@
 		2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2341DD7927A88C9B004E32CC /* CTALStops.json */; };
 		2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */; };
 		2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2341DD7D27A9FF9D004E32CC /* TrainLines.swift */; };
+		2367A5CF27AB99700085B40F /* EmotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5CE27AB996F0085B40F /* EmotionData.swift */; };
+		2367A5D127AB9E7A0085B40F /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */; };
+		2367A5D327AC444F0085B40F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D227AC444F0085B40F /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,22 @@
 		2341DD7927A88C9B004E32CC /* CTALStops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStops.json; sourceTree = "<group>"; };
 		2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedJournalEntryView.swift; sourceTree = "<group>"; };
 		2341DD7D27A9FF9D004E32CC /* TrainLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainLines.swift; sourceTree = "<group>"; };
+		2367A5C027AAF0970085B40F /* test_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = test_path.gpx; sourceTree = "<group>"; };
+		2367A5C127AAF3E20085B40F /* 18th.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 18th.gpx; sourceTree = "<group>"; };
+		2367A5C227AAF5950085B40F /* Linden.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Linden.gpx; sourceTree = "<group>"; };
+		2367A5C327AAF5950085B40F /* Midway.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Midway.gpx; sourceTree = "<group>"; };
+		2367A5C427AAF5950085B40F /* Rockwell.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Rockwell.gpx; sourceTree = "<group>"; };
+		2367A5C527AAF5950085B40F /* Pulaski.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pulaski.gpx; sourceTree = "<group>"; };
+		2367A5C627AAF5950085B40F /* Montrose.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Montrose.gpx; sourceTree = "<group>"; };
+		2367A5C727AAF5950085B40F /* Fullerton.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Fullerton.gpx; sourceTree = "<group>"; };
+		2367A5C827AAF5950085B40F /* Harrison.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Harrison.gpx; sourceTree = "<group>"; };
+		2367A5C927AAF5950085B40F /* Cicero.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Cicero.gpx; sourceTree = "<group>"; };
+		2367A5CA27AAF5960085B40F /* Bryn_Mawr.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bryn_Mawr.gpx; sourceTree = "<group>"; };
+		2367A5CB27AAF5960085B40F /* Western.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Western.gpx; sourceTree = "<group>"; };
+		2367A5CC27AAF5960085B40F /* 79th.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 79th.gpx; sourceTree = "<group>"; };
+		2367A5CE27AB996F0085B40F /* EmotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionData.swift; sourceTree = "<group>"; };
+		2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
+		2367A5D227AC444F0085B40F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +83,7 @@
 		23043BCC27A7469A00F9EDCF = {
 			isa = PBXGroup;
 			children = (
+				2367A5CD27AAF6240085B40F /* TestLocations */,
 				23043BD727A7469B00F9EDCF /* CTA-Map-Journal */,
 				23043BD627A7469B00F9EDCF /* Products */,
 			);
@@ -83,6 +103,7 @@
 				23043BD827A7469B00F9EDCF /* CTA_Map_JournalApp.swift */,
 				2341DD7927A88C9B004E32CC /* CTALStops.json */,
 				23043BDC27A746A400F9EDCF /* Assets.xcassets */,
+				2367A5D227AC444F0085B40F /* Secrets.swift */,
 				23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */,
 				23043BFD27A7AEC200F9EDCF /* CTA-L-Stops.json */,
 				23043BE727A747E000F9EDCF /* Models */,
@@ -120,6 +141,7 @@
 				23043BF027A7499300F9EDCF /* JournalEntry.swift */,
 				23043BFE27A83FF000F9EDCF /* TrainStation.swift */,
 				2341DD7D27A9FF9D004E32CC /* TrainLines.swift */,
+				2367A5CE27AB996F0085B40F /* EmotionData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,8 +152,29 @@
 				23043BF427A74B5600F9EDCF /* NearestTrainStationViewModel.swift */,
 				23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */,
 				23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */,
+				2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2367A5CD27AAF6240085B40F /* TestLocations */ = {
+			isa = PBXGroup;
+			children = (
+				2367A5C727AAF5950085B40F /* Fullerton.gpx */,
+				2367A5C927AAF5950085B40F /* Cicero.gpx */,
+				2367A5C827AAF5950085B40F /* Harrison.gpx */,
+				2367A5CC27AAF5960085B40F /* 79th.gpx */,
+				2367A5C527AAF5950085B40F /* Pulaski.gpx */,
+				2367A5C627AAF5950085B40F /* Montrose.gpx */,
+				2367A5C127AAF3E20085B40F /* 18th.gpx */,
+				2367A5C227AAF5950085B40F /* Linden.gpx */,
+				2367A5CB27AAF5960085B40F /* Western.gpx */,
+				2367A5C027AAF0970085B40F /* test_path.gpx */,
+				2367A5C427AAF5950085B40F /* Rockwell.gpx */,
+				2367A5C327AAF5950085B40F /* Midway.gpx */,
+				2367A5CA27AAF5960085B40F /* Bryn_Mawr.gpx */,
+			);
+			path = TestLocations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,12 +256,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */,
+				2367A5D327AC444F0085B40F /* Secrets.swift in Sources */,
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
 				23043BDB27A7469B00F9EDCF /* ContentView.swift in Sources */,
+				2367A5CF27AB99700085B40F /* EmotionData.swift in Sources */,
 				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,
 				23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */,
 				23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */,
+				2367A5D127AB9E7A0085B40F /* EmotionDataViewModel.swift in Sources */,
 				23043BD927A7469B00F9EDCF /* CTA_Map_JournalApp.swift in Sources */,
 				23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */,
 				23043BF527A74B5600F9EDCF /* NearestTrainStationViewModel.swift in Sources */,
