@@ -28,6 +28,7 @@
 		2367A5CF27AB99700085B40F /* EmotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5CE27AB996F0085B40F /* EmotionData.swift */; };
 		2367A5D127AB9E7A0085B40F /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */; };
 		2367A5D327AC444F0085B40F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D227AC444F0085B40F /* Secrets.swift */; };
+		2367A5D527AC45CC0085B40F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2367A5D427AC45CC0085B40F /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		2367A5CE27AB996F0085B40F /* EmotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionData.swift; sourceTree = "<group>"; };
 		2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
 		2367A5D227AC444F0085B40F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		2367A5D427AC45CC0085B40F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		23043BCC27A7469A00F9EDCF = {
 			isa = PBXGroup;
 			children = (
+				2367A5D427AC45CC0085B40F /* .gitignore */,
 				2367A5CD27AAF6240085B40F /* TestLocations */,
 				23043BD727A7469B00F9EDCF /* CTA-Map-Journal */,
 				23043BD627A7469B00F9EDCF /* Products */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2367A5D527AC45CC0085B40F /* .gitignore in Resources */,
 				2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */,
 				23043BE027A746A400F9EDCF /* Preview Assets.xcassets in Resources */,
 				23043BDD27A746A400F9EDCF /* Assets.xcassets in Resources */,
