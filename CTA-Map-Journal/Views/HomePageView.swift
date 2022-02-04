@@ -12,12 +12,16 @@ import MapKit
 struct HomePageView: View {
 //    @State var nearestTrainStation = ""
     @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
+    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
                 Spacer()
                     .navigationTitle("CTA Map Journal")
+                    .onAppear {
+                        emotionDataViewModel.getAllEmotionData()
+                    }
                 ZStack {
                     Rectangle()
                         .fill(Color.black)

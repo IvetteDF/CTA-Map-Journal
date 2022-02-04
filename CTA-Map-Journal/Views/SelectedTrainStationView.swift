@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectedTrainStationView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
+    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @State var selectedTrainStation: String
     @State private var newJournalEntry: Bool = false
     
@@ -28,6 +29,7 @@ struct SelectedTrainStationView: View {
                 .foregroundColor(Color.white)
                 .onAppear {
                     journalEntryViewModel.getJournalEntries(selectedTrainStation: selectedTrainStation)
+                    emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStation: selectedTrainStation)
                 }
         }
         List(journalEntryViewModel.journalEntries.sorted(by: { lhs, rhs in

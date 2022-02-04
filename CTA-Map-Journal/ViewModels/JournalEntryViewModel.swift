@@ -44,7 +44,7 @@ class JournalEntryViewModel: ObservableObject {
         }
     }
     
-    func addJournalEntry(title: String, entry: String, station_name: String) {
+    func addJournalEntry(title: String, entry: String, station_name: String, analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
         // emotion API call stuff - works! now do I put the addJournalEntry stuff inside its completion handler? if not, how to async??
 //        let emotionDataViewModel = EmotionDataViewModel()
 //        emotionDataViewModel.getEmotionScores(entry: entry)
@@ -54,7 +54,12 @@ class JournalEntryViewModel: ObservableObject {
         
         let db = Firestore.firestore()
         db.collection("JournalEntries")
-            .addDocument(data: ["title":title, "timestamp":timestamp, "entry":entry, "station_name":station_name]) { error in
+            .addDocument(data: ["title":title,
+                                "timestamp":timestamp,
+                                "entry":entry,
+                                "station_name":station_name,
+                                "analyzeEmotion":analyzeEmotion,
+                                "emotionScores":emotionScores]) { error in
             if error == nil {
                 // success message
                 print("added Journal Entry")

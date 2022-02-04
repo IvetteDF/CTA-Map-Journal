@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct NewJournalEntryView: View {
-//    private var journalEntry: JournalEntry
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
-    @State var selectedTrainStation: String
+    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     
+    @State var selectedTrainStation: String
     @State var title = ""
     @State var entry = ""
+    @State private var analyzeEmotion = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -53,8 +54,15 @@ struct NewJournalEntryView: View {
         TextEditor(text: $entry)
             .frame(width: 350.0)
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-        Button("Submit Entry") {
-            journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation)
+        HStack {
+            Toggle("Analyze Emotion?", isOn: $analyzeEmotion)
+            Button("Submit Entry") {
+                if analyzeEmotion {
+                    emotionDataViewModel.getEmotionScores(title: title, entry: entry, station_name: selectedTrainStation, analyzeEmotion: analyzeEmotion)
+                } else {
+                    journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation)
+                }
+            }
         }
     }
 }
