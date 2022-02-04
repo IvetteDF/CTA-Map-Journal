@@ -63,6 +63,13 @@ struct NewJournalEntryView: View {
                     journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation)
                 }
             }
+            .alert("Successfully entered, cutie ;)", isPresented: $journalEntryViewModel.successfulEntry) {
+                Button("<3", role: .cancel) {
+                    journalEntryViewModel.setFalse()
+                    title = ""
+                    entry = ""
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ import SwiftUI
 class JournalEntryViewModel: ObservableObject {
     
     @Published var journalEntries = [JournalEntry]()
+    @Published var successfulEntry: Bool = false
     
     func getJournalEntries(selectedTrainStation: String) {
         let db = Firestore.firestore()
@@ -63,11 +64,18 @@ class JournalEntryViewModel: ObservableObject {
             if error == nil {
                 // success message
                 print("added Journal Entry")
-                // add logic to clear text field and text editor if success
+                self.successfulEntry = true
+//                print(self.successfulEntry)
+                
                 // add logic to include notification of successful post
             } else {
                 print(error!)
             }
         }
+    }
+    
+    func setFalse() {
+        self.successfulEntry = false
+//        print(self.successfulEntry)
     }
 }
