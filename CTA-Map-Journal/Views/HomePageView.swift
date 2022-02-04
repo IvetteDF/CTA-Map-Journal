@@ -17,10 +17,14 @@ struct HomePageView: View {
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
+                // emotionDataViewModel.aggregateEmotionScoresArray loads before the function updates that property
+                EmotionChartView(values: emotionDataViewModel.aggregateEmotionScoresArray
+                                 , colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: emotionDataViewModel.emotionsArray, backgroundColor: Color.white, innerRadiusFraction: 0.6)
                 Spacer()
                     .navigationTitle("CTA Map Journal")
                     .onAppear {
                         emotionDataViewModel.getAllEmotionData()
+                        print(emotionDataViewModel.aggregateEmotionScoresArray)
                     }
                 ZStack {
                     Rectangle()
@@ -42,7 +46,10 @@ struct HomePageView: View {
                         .fill(Color(.systemGray))
                         .frame(maxWidth: .infinity, maxHeight: 50)
                     // add NavigationLink to SelectedTrainStationView of nearestTrainStation
-                    Text(nearestTrainStationViewModel.nearestTrainStation)
+                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: nearestTrainStationViewModel.nearestTrainStation)) {
+                        Text(nearestTrainStationViewModel.nearestTrainStation)
+                            .foregroundColor(Color.white)
+                    }
                 }
                 ZStack (alignment: .leading) {
                     Rectangle()
@@ -61,7 +68,6 @@ struct HomePageView: View {
                         }
                     }
                 }
-                Spacer()
             }
         }
     }

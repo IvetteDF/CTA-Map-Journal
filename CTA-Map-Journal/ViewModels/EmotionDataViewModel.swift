@@ -23,6 +23,9 @@ import Firebase
                                                              "joy": 0,
                                                              "surprise": 0,
                                                              "fear": 0]
+    @Published var aggregateEmotionScoresForTrainStationArray: [Double] = []
+    @Published var aggregateEmotionScoresArray: [Double] = []
+    let emotionsArray: [String] = ["anger", "disgust", "fear", "joy", "sadness", "surprise"]
 
     func getEmotionScores(title: String, entry: String, station_name: String, analyzeEmotion: Bool) {
         // should I make EmotionDataViewModel a subclass of JournalEntryViewModel ???
@@ -67,6 +70,7 @@ import Firebase
                 "surprise": emotionData.emotion_scores.surprise,
                 "fear": emotionData.emotion_scores.fear]
             self.emotionScores = emotionScoresDict
+            print(emotionScoresDict)
             // output this
 //            EmotionData(emotion_scores: CTA_Map_Journal.EmotionScores(anger: 0.0, disgust: 0.0, sadness: 0.0, joy: 0.1128855543936164, surprise: 0.03413678713931377, fear: 0.0))
         }
@@ -106,7 +110,10 @@ import Firebase
                             for (emotion, sumOfRatios) in self.aggregateEmotionScoresForTrainStation {
                                 self.aggregateEmotionScoresForTrainStation[emotion] = sumOfRatios/length
                             }
-//                            print(self.aggregateEmotionScoresForTrainStation)
+                            let sorted = self.aggregateEmotionScoresForTrainStation.sorted(by: <)
+                            self.aggregateEmotionScoresForTrainStationArray = sorted.map { $0.value }
+//                            print(self.aggregateEmotionScoresForTrainStationArray)
+                            
                         }
                     }
                 }
@@ -146,7 +153,9 @@ import Firebase
                             for (emotion, sumOfRatios) in self.aggregateEmotionScores {
                                 self.aggregateEmotionScores[emotion] = sumOfRatios/length
                             }
-                            print(self.aggregateEmotionScores)
+                            let sorted = self.aggregateEmotionScores .sorted(by: <)
+                            self.aggregateEmotionScoresArray = sorted.map { $0.value }
+                            print(self.aggregateEmotionScoresArray)
                         }
                     }
                 }

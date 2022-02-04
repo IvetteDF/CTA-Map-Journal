@@ -29,6 +29,10 @@
 		2367A5D127AB9E7A0085B40F /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */; };
 		2367A5D327AC444F0085B40F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5D227AC444F0085B40F /* Secrets.swift */; };
 		2367A5D527AC45CC0085B40F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2367A5D427AC45CC0085B40F /* .gitignore */; };
+		2367A5DB27AD824F0085B40F /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5DA27AD824F0085B40F /* PieSliceView.swift */; };
+		2367A5DE27AD8D390085B40F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5DD27AD8D390085B40F /* PieChartView.swift */; };
+		2367A5E427ADBBE10085B40F /* EmotionSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E327ADBBE10085B40F /* EmotionSliceView.swift */; };
+		2367A5E627ADBBF70085B40F /* EmotionChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E527ADBBF70085B40F /* EmotionChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
 		2367A5D227AC444F0085B40F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		2367A5D427AC45CC0085B40F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2367A5DA27AD824F0085B40F /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
+		2367A5DD27AD8D390085B40F /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		2367A5E327ADBBE10085B40F /* EmotionSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionSliceView.swift; sourceTree = "<group>"; };
+		2367A5E527ADBBF70085B40F /* EmotionChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,8 @@
 		23043BE627A747D600F9EDCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2367A5E227ADBBCE0085B40F /* EmotionChart */,
+				2367A5DC27AD8D100085B40F /* TestingPieChart */,
 				23043BDA27A7469B00F9EDCF /* ContentView.swift */,
 				23043BE827A748C800F9EDCF /* HomePageView.swift */,
 				2331774C27A86698009CCA78 /* SelectedTrainLineView.swift */,
@@ -178,6 +188,24 @@
 				2367A5CA27AAF5960085B40F /* Bryn_Mawr.gpx */,
 			);
 			path = TestLocations;
+			sourceTree = "<group>";
+		};
+		2367A5DC27AD8D100085B40F /* TestingPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				2367A5DA27AD824F0085B40F /* PieSliceView.swift */,
+				2367A5DD27AD8D390085B40F /* PieChartView.swift */,
+			);
+			path = TestingPieChart;
+			sourceTree = "<group>";
+		};
+		2367A5E227ADBBCE0085B40F /* EmotionChart */ = {
+			isa = PBXGroup;
+			children = (
+				2367A5E327ADBBE10085B40F /* EmotionSliceView.swift */,
+				2367A5E527ADBBF70085B40F /* EmotionChartView.swift */,
+			);
+			path = EmotionChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +287,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2367A5E427ADBBE10085B40F /* EmotionSliceView.swift in Sources */,
+				2367A5DE27AD8D390085B40F /* PieChartView.swift in Sources */,
 				2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */,
 				2367A5D327AC444F0085B40F /* Secrets.swift in Sources */,
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
@@ -266,12 +296,14 @@
 				2367A5CF27AB99700085B40F /* EmotionData.swift in Sources */,
 				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,
+				2367A5E627ADBBF70085B40F /* EmotionChartView.swift in Sources */,
 				23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */,
 				23043BE927A748C800F9EDCF /* HomePageView.swift in Sources */,
 				2367A5D127AB9E7A0085B40F /* EmotionDataViewModel.swift in Sources */,
 				23043BD927A7469B00F9EDCF /* CTA_Map_JournalApp.swift in Sources */,
 				23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */,
 				23043BF527A74B5600F9EDCF /* NearestTrainStationViewModel.swift in Sources */,
+				2367A5DB27AD824F0085B40F /* PieSliceView.swift in Sources */,
 				23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */,
 				23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */,
 				2331774D27A86698009CCA78 /* SelectedTrainLineView.swift in Sources */,
