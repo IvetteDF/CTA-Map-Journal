@@ -14,10 +14,10 @@ class JournalEntryViewModel: ObservableObject {
     @Published var journalEntries = [JournalEntry]()
     @Published var successfulEntry: Bool = false
     
-    func getJournalEntries(selectedTrainStation: String) {
+    func getJournalEntries(selectedTrainStationName: String) {
         let db = Firestore.firestore()
         db.collection("JournalEntries")
-            .whereField("station_name", isEqualTo: selectedTrainStation)
+            .whereField("station_name", isEqualTo: selectedTrainStationName)
             .getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {

@@ -23,7 +23,7 @@ class TrainStationViewModel: ObservableObject {
                 for trainStation in trainStationsDuplicates {
                     if (trainStation.station_name != prevTrainStationName) && (trainStation.trainLines[trainStationColor]! == true) {
                         self.trainStations.append(trainStation)
-                        prevTrainStationName = trainStation.station_name
+                        prevTrainStationName = trainStation.station_name!
                     }
                 }
             }

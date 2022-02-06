@@ -10,7 +10,6 @@ import CoreLocationUI
 import MapKit
 
 struct HomePageView: View {
-//    @State var nearestTrainStation = ""
     @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     
@@ -47,7 +46,7 @@ struct HomePageView: View {
                         .frame(maxWidth: .infinity, maxHeight: 50)
                     // add NavigationLink to SelectedTrainStationView of nearestTrainStation
                     NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: nearestTrainStationViewModel.nearestTrainStation)) {
-                        Text(nearestTrainStationViewModel.nearestTrainStation)
+                        Text(nearestTrainStationViewModel.nearestTrainStation.station_name ?? "")
                             .foregroundColor(Color.white)
                     }
                 }
@@ -62,7 +61,7 @@ struct HomePageView: View {
                 }
                 List {
                     ForEach(TrainLines.trainLinesDict.sorted(by: <), id: \.key) {key, value in
-                        NavigationLink(destination: SelectedTrainLineView(selectedTrainLine: key)) {
+                        NavigationLink(destination: SelectedTrainLineView(selectedTrainLine: key, selectedTrainLineValue: value)) {
                             Text(key)
                                 .listRowBackground(Color(.systemGray5))
                         }

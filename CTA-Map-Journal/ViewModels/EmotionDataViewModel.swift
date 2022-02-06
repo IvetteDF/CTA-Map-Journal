@@ -76,10 +76,10 @@ import Firebase
         }
     }
     
-    func getEmotionDataForTrainStation (selectedTrainStation: String) {
+    func getEmotionDataForTrainStation (selectedTrainStationName: String) {
         let db = Firestore.firestore()
         db.collection("JournalEntries")
-            .whereField("station_name", isEqualTo: selectedTrainStation)
+            .whereField("station_name", isEqualTo: selectedTrainStationName)
             .whereField("analyzeEmotion", isEqualTo: true)
             .getDocuments { snapshot, error in
                 if error != nil {

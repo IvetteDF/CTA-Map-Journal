@@ -10,8 +10,9 @@ import SwiftUI
 struct NewJournalEntryView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
+    @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     
-    @State var selectedTrainStation: String
+    @StateObject var selectedTrainStation: TrainStation
     @State var title = ""
     @State var entry = ""
     @State private var analyzeEmotion = false
@@ -31,7 +32,7 @@ struct NewJournalEntryView: View {
                 Rectangle()
                     .fill(Color(.systemGray))
                     .frame(maxWidth: .infinity, maxHeight: 50)
-                Text(selectedTrainStation)
+                Text(selectedTrainStation.station_name!)
                     .font(.headline)
                     .foregroundColor(Color.white)
             }
@@ -43,8 +44,9 @@ struct NewJournalEntryView: View {
                     .font(.headline)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
-//                List {
+//                List() {
 //                    // list of all train stations
+//                    
 //                }
             }
         }
@@ -58,9 +60,9 @@ struct NewJournalEntryView: View {
             Toggle("Analyze Emotion?", isOn: $analyzeEmotion)
             Button("Submit Entry") {
                 if analyzeEmotion {
-                    emotionDataViewModel.getEmotionScores(title: title, entry: entry, station_name: selectedTrainStation, analyzeEmotion: analyzeEmotion)
+                    emotionDataViewModel.getEmotionScores(title: title, entry: entry, station_name: selectedTrainStation.station_name!, analyzeEmotion: analyzeEmotion)
                 } else {
-                    journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation)
+                    journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation.station_name!)
                 }
             }
             .alert("Successfully entered, cutie ;)", isPresented: $journalEntryViewModel.successfulEntry) {

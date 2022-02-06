@@ -7,17 +7,19 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var userLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
-    @Published var nearestTrainStation: String = ""
+    @ObservedObject var nearestTrainStation: TrainStation
     @Published var allTrainStations: [TrainStation] = []
     
     
     let locationManager = CLLocationManager()
     
     override init () {
+        self.nearestTrainStation = TrainStation()
         super.init()
         locationManager.delegate = self
     }
@@ -51,11 +53,11 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
         for trainStation in allTrainStations {
             // calculate distance between trainStation and userLocation
             let distance: Double =
-            sqrt(pow((trainStation.location.latitudeDouble - userLocation.coordinate.latitude), 2) + pow((trainStation.location.longitudeDouble - userLocation.coordinate.longitude), 2))
+            sqrt(pow((trainStation.location!.latitudeDouble - userLocation.coordinate.latitude), 2) + pow((trainStation.location!.longitudeDouble - userLocation.coordinate.longitude), 2))
             // check for min distance
             if distance < minDistance {
                 minDistance = distance
-                self.nearestTrainStation = trainStation.station_name
+                self.nearestTrainStation = trainStation
             }
         }
     }
@@ -71,7 +73,7 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
                 for trainStation in trainStationsDuplicates {
                     if (trainStation.station_name != prevTrainStationName) {
                         self.allTrainStations.append(trainStation)
-                        prevTrainStationName = trainStation.station_name
+                        prevTrainStationName = trainStation.station_name!
                     }
                 }
             }

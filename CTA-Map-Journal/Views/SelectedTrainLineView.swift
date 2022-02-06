@@ -11,17 +11,29 @@ struct SelectedTrainLineView: View {
     
     @ObservedObject var trainStationViewModel = TrainStationViewModel()
     @State var selectedTrainLine: String
+    @State var selectedTrainLineValue: String
     
     var body: some View {
         
-        // add logic to change color of heading based on selectedTrainLine
-        Spacer()
-            .navigationTitle(selectedTrainLine)
-            .onAppear {
-                trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
-        List(trainStationViewModel.trainStations) { trainStation in
-            NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation.station_name)) {
-                Text(trainStation.station_name)
+        ZStack {
+            Rectangle()
+                .fill(TrainLines.trainLineColors[selectedTrainLineValue] ?? Color.gray)
+                .ignoresSafeArea()
+            VStack {
+                Text(selectedTrainLine)
+                    .foregroundColor(Color.white)
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(alignment: .topLeading)
+                Spacer()
+//                    .navigationTitle(selectedTrainLine)
+                    .onAppear {
+                        trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
+                List(trainStationViewModel.trainStations) { trainStation in
+                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation)) {
+                        Text(trainStation.station_name!)
+                    }
+                }
             }
         }
     }

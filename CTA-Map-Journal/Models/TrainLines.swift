@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TrainLines {
     static let trainLinesDict: [String:String] = [
@@ -17,4 +18,13 @@ struct TrainLines {
         "Yellow Line": "y",
         "Pink Line": "pnk",
         "Orange Line": "o"]
+    static let trainLineColors: [String:Color] = [
+        "red": Color("CTARed"),
+        "blue": Color("CTABlue"),
+        "g": Color("CTAGreen"),
+        "brn": Color("CTABrown"),
+        "p": Color("CTAPurple"),
+        "y": Color("CTAYellow"),
+        "pnk": Color("CTAPink"),
+        "o": Color("CTAOrange")]
 }
