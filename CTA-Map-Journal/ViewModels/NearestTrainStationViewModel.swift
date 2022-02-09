@@ -14,6 +14,7 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
     @Published var userLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
     @ObservedObject var nearestTrainStation: TrainStation
     @Published var allTrainStations: [TrainStation] = []
+    @Published var allTrainStationsNames: [String] = []
     
     
     let locationManager = CLLocationManager()
@@ -63,7 +64,7 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
     }
     
     func makeAllTrainStations() {
-        if let url = Bundle.main.url(forResource: "CTALStops", withExtension: "json"),
+        if let url = Bundle.main.url(forResource: "CTALStopsFixed", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(JSONData.self, from: data) {
@@ -78,5 +79,22 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
                 }
             }
         }
+    }
+    
+    func makeAllTrainStationsNames() {
+        makeAllTrainStations()
+        var tempNames: [String] = []
+        for trainStation in self.allTrainStations {
+            tempNames.append(trainStation.station_name!)
+        }
+        tempNames.sort()
+        var prevName = ""
+        for name in tempNames {
+            if (name != prevName) {
+                self.allTrainStationsNames.append(name)
+                prevName = name
+            }
+        }
+        
     }
 }

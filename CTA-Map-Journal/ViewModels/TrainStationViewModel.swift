@@ -12,7 +12,7 @@ class TrainStationViewModel: ObservableObject {
     @Published var trainStations: [TrainStation] = []
     
     func makeTrainStations(selectedTrainLine: String) {
-        if let url = Bundle.main.url(forResource: "CTALStops", withExtension: "json"),
+        if let url = Bundle.main.url(forResource: "CTALStopsFixed", withExtension: "json"),
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(JSONData.self, from: data) {

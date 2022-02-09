@@ -15,4 +15,5 @@ struct JournalEntry: Identifiable {
     var date: String
     var entry: String
     var station_name: String
+    var end_station_name: String
 }

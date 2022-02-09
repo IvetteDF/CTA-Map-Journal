@@ -42,6 +42,7 @@ struct EmotionChartView: View {
 //                        .fill(self.backgroundColor)
 //                        .frame(width: geometry.size.width * innerRadiusFraction, height: geometry.size.width * innerRadiusFraction)
                 }
+                Text("Mood")
                 EmotionChartRows(colors: self.colors, names: self.names, values: self.values.map { String($0) }, percents: self.values.map {String(format: "%.0f%%", $0 * 100)})
                     .foregroundColor(Color.black)
             }

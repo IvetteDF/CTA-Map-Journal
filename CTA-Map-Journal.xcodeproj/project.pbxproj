@@ -37,6 +37,7 @@
 		2367A5E627ADBBF70085B40F /* EmotionChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E527ADBBF70085B40F /* EmotionChartView.swift */; };
 		2367A5E827B098D70085B40F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E727B098D50085B40F /* Theme.swift */; };
 		2367A5EA27B0B2F70085B40F /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E927B0B2F70085B40F /* Collapsible.swift */; };
+		23EA8BC227B3909100DA8053 /* CTALStopsFixed.json in Resources */ = {isa = PBXBuildFile; fileRef = 23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		2367A5E527ADBBF70085B40F /* EmotionChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionChartView.swift; sourceTree = "<group>"; };
 		2367A5E727B098D50085B40F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2367A5E927B0B2F70085B40F /* Collapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collapsible.swift; sourceTree = "<group>"; };
+		23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStopsFixed.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				23043BD827A7469B00F9EDCF /* CTA_Map_JournalApp.swift */,
 				2341DD7927A88C9B004E32CC /* CTALStops.json */,
+				23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */,
 				23043BDC27A746A400F9EDCF /* Assets.xcassets */,
 				2367A5D227AC444F0085B40F /* Secrets.swift */,
 				23043BF827A74E4800F9EDCF /* GoogleService-Info.plist */,
@@ -286,6 +289,7 @@
 			files = (
 				2367A5D527AC45CC0085B40F /* .gitignore in Resources */,
 				2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */,
+				23EA8BC227B3909100DA8053 /* CTALStopsFixed.json in Resources */,
 				23043BE027A746A400F9EDCF /* Preview Assets.xcassets in Resources */,
 				23043BDD27A746A400F9EDCF /* Assets.xcassets in Resources */,
 				23043BF927A74E4800F9EDCF /* GoogleService-Info.plist in Resources */,

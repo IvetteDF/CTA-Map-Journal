@@ -25,6 +25,6 @@ struct SelectedJournalEntryView: View {
 
 struct SelectedJournalEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedJournalEntryView(selectedJournalEntry: JournalEntry(id: "rJvT9DL0CqL0Yqip8LqW", title: "Showing Off", timestamp: Timestamp(seconds: 1643996703, nanoseconds: 829902000), date: "2/2/22", entry: "Wow my classmates must be so impressed with me this is cool I love life", station_name: "18th (Pink Line)"))
+        SelectedJournalEntryView(selectedJournalEntry: JournalEntry(id: "rJvT9DL0CqL0Yqip8LqW", title: "Showing Off", timestamp: Timestamp(seconds: 1643996703, nanoseconds: 829902000), date: "2/2/22", entry: "Wow my classmates must be so impressed with me this is cool I love life", station_name: "18th (Pink Line)", end_station_name: ""))
     }
 }

@@ -35,7 +35,7 @@ class EmotionDataViewModel: ObservableObject {
     @Published var aggregateEmotionScoresArray: [Double] = []
     let emotionsArray: [String] = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Surprise"]
 
-    func getEmotionScores(title: String, entry: String, station_name: String, analyzeEmotion: Bool) {
+    func getEmotionScores(title: String, entry: String, station_name: String, end_station_name: String, analyzeEmotion: Bool) {
         // should I make EmotionDataViewModel a subclass of JournalEntryViewModel ???
         @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
         
@@ -59,7 +59,7 @@ class EmotionDataViewModel: ObservableObject {
                 print("I'm inside the getEmotionScores method")
                 let httpData = data!
                 self.decodeEmotionData(httpData: httpData)
-                journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: station_name, analyzeEmotion: true, emotionScores: self.emotionScores)
+                journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: station_name, end_station_name: end_station_name, analyzeEmotion: true, emotionScores: self.emotionScores)
                 // Ask Ansel what to do about this:
 //                2022-02-03 15:10:42.418619-0600 CTA-Map-Journal[33634:4431016] [SwiftUI] Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates.
             }

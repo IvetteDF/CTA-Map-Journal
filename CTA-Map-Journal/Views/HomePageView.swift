@@ -75,7 +75,7 @@ struct HomePageView: View {
                             }
                         }
                     }
-                } 
+                }
             }
         }
     }

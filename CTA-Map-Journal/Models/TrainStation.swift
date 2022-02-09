@@ -30,14 +30,14 @@ class TrainStation: Decodable, Identifiable, ObservableObject {
     var trainLines: [String:Bool] {
         get {
             return [
-                "red": red ?? false,
-                "blue": blue ?? false,
-                "g": g ?? false,
-                "brn": brn ?? false,
-                "p": p ?? false,
-                "y": y ?? false,
-                "pnk": pnk ?? false,
-                "o": o ?? false]
+                "red": red!,
+                "blue": blue!,
+                "g": g!,
+                "brn": brn!,
+                "p": p!,
+                "y": y!,
+                "pnk": pnk!,
+                "o": o!]
         }
     }
     init(stop_id: String? = nil, id: String? = nil, station_descriptive_name: String? = nil, station_name: String? = nil, location: Location? = nil, red: Bool? = nil, blue: Bool? = nil, g: Bool? = nil, brn: Bool? = nil, p: Bool? = nil, y: Bool? = nil, pnk: Bool? = nil, o: Bool? = nil, trainLines: [String?:Bool?] = [nil:nil]) {

@@ -13,6 +13,7 @@ class JournalEntryViewModel: ObservableObject {
     
     @Published var journalEntries = [JournalEntry]()
     @Published var successfulEntry: Bool = false
+    @Published var emptyEntry: Bool = false
     
     func getJournalEntries(selectedTrainStationName: String) {
         let db = Firestore.firestore()
@@ -35,7 +36,8 @@ class JournalEntryViewModel: ObservableObject {
                                                  timestamp: timestamp,
                                                  date: date,
                                                  entry: d["entry"] as? String ?? "",
-                                                 station_name: d["station_name"] as? String ?? "")
+                                                 station_name: d["station_name"] as? String ?? "",
+                                                 end_station_name: d["end_station_name"] as? String ?? "")
                          }
                     }
                 }
@@ -45,10 +47,12 @@ class JournalEntryViewModel: ObservableObject {
         }
     }
     
-    func addJournalEntry(title: String, entry: String, station_name: String, analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
-        // emotion API call stuff - works! now do I put the addJournalEntry stuff inside its completion handler? if not, how to async??
-//        let emotionDataViewModel = EmotionDataViewModel()
-//        emotionDataViewModel.getEmotionScores(entry: entry)
+    func addJournalEntry(title: String, entry: String, station_name: String, end_station_name: String = "", analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
+        // check for empty entry or title
+        if ((entry == "") || (title == "")) {
+            self.emptyEntry = true
+            return
+        }
         
         // add a timestamp
         let timestamp: Date = Date()
@@ -59,6 +63,7 @@ class JournalEntryViewModel: ObservableObject {
                                 "timestamp":timestamp,
                                 "entry":entry,
                                 "station_name":station_name,
+                                "end_station_name": end_station_name,
                                 "analyzeEmotion":analyzeEmotion,
                                 "emotionScores":emotionScores]) { error in
             if error == nil {
@@ -76,6 +81,7 @@ class JournalEntryViewModel: ObservableObject {
     
     func setFalse() {
         self.successfulEntry = false
-//        print(self.successfulEntry)
+        self.emptyEntry = false
+//        print("empty entry\(self.emptyEntry)")
     }
 }

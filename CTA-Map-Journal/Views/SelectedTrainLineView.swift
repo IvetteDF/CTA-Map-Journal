@@ -15,27 +15,31 @@ struct SelectedTrainLineView: View {
     
     var body: some View {
         
-        ZStack {
-            Rectangle()
-                .fill(TrainLines.trainLineColors[selectedTrainLineValue] ?? Color.gray)
-                .ignoresSafeArea()
+       // ZStack {
+
             VStack {
-                Text(selectedTrainLine)
-                    .foregroundColor(Color.white)
-                    .font(.largeTitle)
-                    .bold()
-                    .padding([.top, .trailing], 40.0)
-                    .frame(maxWidth: .infinity, maxHeight: 35, alignment: .topTrailing)
-                    .ignoresSafeArea()
-                    .onAppear {
-                        trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
+                ZStack {
+                    Rectangle()
+                        .fill(TrainLines.trainLineColors[selectedTrainLineValue] ?? Color.gray)
+                        .ignoresSafeArea()
+                        .frame(maxWidth: .infinity, maxHeight: 10)
+                    Text("\(selectedTrainLine)   ")
+                        .foregroundColor(Color.white)
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top, 100.0)
+                        .frame(maxWidth: .infinity, maxHeight: 10, alignment: .topTrailing)
+                        .ignoresSafeArea()
+                        .onAppear {
+                            trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
+                }
                 List(trainStationViewModel.trainStations) { trainStation in
                     NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation)) {
                         Text(trainStation.station_name!)
                     }
                 }
             }
-        }
+       // }
     }
 }
 
