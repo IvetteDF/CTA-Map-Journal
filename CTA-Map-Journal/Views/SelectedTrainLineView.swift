@@ -24,9 +24,9 @@ struct SelectedTrainLineView: View {
                     .foregroundColor(Color.white)
                     .font(.largeTitle)
                     .bold()
-                    .frame(alignment: .topLeading)
-                Spacer()
-//                    .navigationTitle(selectedTrainLine)
+                    .padding([.top, .trailing], 40.0)
+                    .frame(maxWidth: .infinity, maxHeight: 35, alignment: .topTrailing)
+                    .ignoresSafeArea()
                     .onAppear {
                         trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
                 List(trainStationViewModel.trainStations) { trainStation in
@@ -39,9 +39,9 @@ struct SelectedTrainLineView: View {
     }
 }
 
-//struct SelectedTrainLineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SelectedTrainLineView()
-//    }
-//}
+struct SelectedTrainLineView_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectedTrainLineView(selectedTrainLine: "Red Line", selectedTrainLineValue: "red")
+    }
+}
 

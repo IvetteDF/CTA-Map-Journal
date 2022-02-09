@@ -9,7 +9,15 @@ import Foundation
 import SwiftUI
 import Firebase
 
-@MainActor class EmotionDataViewModel: ObservableObject {
+class EmotionDataViewModel: ObservableObject {
+    enum LoadState {
+        case loading
+        case loaded
+        case oopsy
+    }
+    
+    @Published var loadState: LoadState = .loading
+    @Published var loadStateTrainStation: LoadState = .loading
     @Published var emotionScores: [String:Double] = [:]
     @Published var aggregateEmotionScoresForTrainStation:[String:Double] = ["anger": 0,
                                                                             "disgust": 0,
@@ -25,7 +33,7 @@ import Firebase
                                                              "fear": 0]
     @Published var aggregateEmotionScoresForTrainStationArray: [Double] = []
     @Published var aggregateEmotionScoresArray: [Double] = []
-    let emotionsArray: [String] = ["anger", "disgust", "fear", "joy", "sadness", "surprise"]
+    let emotionsArray: [String] = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Surprise"]
 
     func getEmotionScores(title: String, entry: String, station_name: String, analyzeEmotion: Bool) {
         // should I make EmotionDataViewModel a subclass of JournalEntryViewModel ???
@@ -112,6 +120,7 @@ import Firebase
                             }
                             let sorted = self.aggregateEmotionScoresForTrainStation.sorted(by: <)
                             self.aggregateEmotionScoresForTrainStationArray = sorted.map { $0.value }
+                            self.loadStateTrainStation = .loaded
 //                            print(self.aggregateEmotionScoresForTrainStationArray)
                             
                         }
@@ -128,6 +137,7 @@ import Firebase
                 if error != nil {
                     // error handling
                     print(error!)
+                    self.loadState = .oopsy
                 } else {
                     if let snapshot = snapshot {
                         DispatchQueue.main.async {
@@ -155,10 +165,53 @@ import Firebase
                             }
                             let sorted = self.aggregateEmotionScores .sorted(by: <)
                             self.aggregateEmotionScoresArray = sorted.map { $0.value }
-                            print(self.aggregateEmotionScoresArray)
+                            self.loadState = .loaded
+//                            print(self.aggregateEmotionScoresArray)
                         }
                     }
                 }
             }
     }
+//
+//    func load() {
+//        let db = Firestore.firestore()
+//        db.collection("JournalEntries")
+//            .whereField("analyzeEmotion", isEqualTo: true)
+//            .getDocuments { snapshot, error in
+//                if error != nil {
+//                    // error handling
+//                    print(error!)
+//                } else {
+//                    if let snapshot = snapshot {
+//                        DispatchQueue.main.async {
+////                            let emotionScores = snapshot.documents[0]["emotionScores"] as! Dictionary<String, Double>
+////                            print(emotionScores["anger"]!)
+//                            let length = Double(snapshot.documents.count)
+//                            for d in snapshot.documents {
+//                                var emotionScores = d["emotionScores"] as! Dictionary<String, Double>
+//                                // get sum of emotion scores for d
+//                                var sumEmotionScores: Double = 0
+//                                for (_, score) in emotionScores {
+//                                    sumEmotionScores += score
+//                                }
+//                                // find ratio of emotion score for each emotion in d
+//                                for (emotion, score) in emotionScores {
+//                                    emotionScores[emotion] = (score / sumEmotionScores)
+//                                }
+//                                // find sum of ratios of emotion scores from d
+//                                for (emotion, ratio) in emotionScores {
+//                                    self.aggregateEmotionScores[emotion]! += ratio
+//                                }
+//                            }
+//                            for (emotion, sumOfRatios) in self.aggregateEmotionScores {
+//                                self.aggregateEmotionScores[emotion] = sumOfRatios/length
+//                            }
+//                            let sorted = self.aggregateEmotionScores .sorted(by: <)
+//                            self.aggregateEmotionScoresArray = sorted.map { $0.value }
+////                            print(self.aggregateEmotionScoresArray)
+//                        }
+//                    }
+//                }
+//            }
+//    }
 }

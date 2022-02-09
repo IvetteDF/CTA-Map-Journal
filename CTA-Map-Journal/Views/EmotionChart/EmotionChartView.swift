@@ -31,20 +31,19 @@ struct EmotionChartView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack (spacing: 0) {
                 ZStack {
                     ForEach(0..<self.values.count) { i in
                         EmotionSliceView(emotionSliceData: self.slices[i])
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.width)
+                    .frame(width: geometry.size.width, height: 0.32 * geometry.size.width)
                     
-                    Circle()
-                        .fill(self.backgroundColor)
-                        .frame(width: geometry.size.width * innerRadiusFraction, height: geometry.size.width * innerRadiusFraction)
+//                    Circle()
+//                        .fill(self.backgroundColor)
+//                        .frame(width: geometry.size.width * innerRadiusFraction, height: geometry.size.width * innerRadiusFraction)
                 }
                 EmotionChartRows(colors: self.colors, names: self.names, values: self.values.map { String($0) }, percents: self.values.map {String(format: "%.0f%%", $0 * 100)})
                     .foregroundColor(Color.black)
-                    
             }
             .background(self.backgroundColor)
             .foregroundColor(Color.black)
@@ -55,7 +54,7 @@ struct EmotionChartView: View {
 struct EmotionChartView_Previews: PreviewProvider {
     static var previews: some View {
         // my values passed in will be the emotion ratios
-        EmotionChartView(values: [0.26475899291069993, 0.029184726665766533, 0.029140916889612543, 0.8637116558308374, 0.09292698462437327, 0.05361005641204363], colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: ["anger", "disgust", "fear", "joy", "sadness", "surprise"], backgroundColor: Color.white, innerRadiusFraction: 0.45)
+        EmotionChartView(values: [0.26475899291069993, 0.029184726665766533, 0.029140916889612543, 0.8637116558308374, 0.09292698462437327, 0.05361005641204363], colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: ["anger", "disgust", "fear", "joy", "sadness", "surprise"], backgroundColor: Color.white, innerRadiusFraction: 0.2)
     }
 }
 

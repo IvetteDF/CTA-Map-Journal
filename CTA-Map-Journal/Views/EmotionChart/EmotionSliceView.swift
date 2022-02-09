@@ -34,12 +34,12 @@ struct EmotionSliceView: View {
                 }
                 .fill(emotionSliceData.color)
                 
-                Text(emotionSliceData.text)
-                    .position(
-                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadians)),
-                        y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(self.midRadians))
-                    )
-                    .foregroundColor(Color.white)
+//                Text(emotionSliceData.text)
+//                    .position(
+//                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadians)),
+//                        y: geometry.size.height * 0.2 * CGFloat(1.0 - 0.78 * sin(self.midRadians))// - geometry.size.height * 0.2
+//                    )
+//                    .foregroundColor(Color.black)
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -55,7 +55,7 @@ struct EmotionSliceData {
 
 struct EmotionSliceView_Previews: PreviewProvider {
     static var previews: some View {
-        PieSliceView(pieSliceData: PieSliceData(
+        EmotionSliceView(emotionSliceData: EmotionSliceData(
             startAngle: Angle(degrees: 0.0),
             endAngle: Angle(degrees: 220.0),
             text: "65%",
