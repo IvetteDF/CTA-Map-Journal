@@ -18,11 +18,10 @@ struct MapView: View {
         Map(coordinateRegion: $region, interactionModes: MapInteractionModes.all, showsUserLocation: true, annotationItems: allTrainStations) { trainStation in
             MapAnnotation(coordinate: trainStation.location!.clLocation) {
                 NavigationLink {
-                    SelectedTrainStationView(selectedTrainStation: trainStation, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))
+                    SelectedTrainStationView(selectedTrainStation: trainStation)
                 } label: {
                     TrainStationMarkerView()
                 }
-                .foregroundColor(.black)
             }
         }
             .ignoresSafeArea()
@@ -32,7 +31,7 @@ struct MapView: View {
 struct TrainStationMarkerView: View {
     var body: some View {
         Image(systemName: "circle.circle.fill")
-//            .hoverEffect(.lift)
+            .foregroundColor(.black)
     }
 }
 

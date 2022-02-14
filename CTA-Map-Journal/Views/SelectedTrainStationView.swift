@@ -12,7 +12,6 @@ struct SelectedTrainStationView: View {
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @EnvironmentObject var settings: SettingsViewModel
     @StateObject var selectedTrainStation: TrainStation
-    @State var selectedJournalEntry: JournalEntry
     @State private var newJournalEntry: Bool = false
     @State private var showingJournalEntry = false
     
@@ -81,7 +80,6 @@ struct SelectedTrainStationView: View {
                 return lhs.timestamp.seconds > rhs.timestamp.seconds
             })) { journalEntry in
                 Button(action: {
-                    selectedJournalEntry = journalEntry
                     showingJournalEntry.toggle()
                 }, label: {
                     HStack {
@@ -90,9 +88,9 @@ struct SelectedTrainStationView: View {
                     }
                     .foregroundColor(.black)
                 })
-            }
-            .sheet(isPresented: $showingJournalEntry) {
-                SelectedJournalEntryView(selectedJournalEntry: selectedJournalEntry)
+                .sheet(isPresented: $showingJournalEntry) {
+                    SelectedJournalEntryView(selectedJournalEntry: journalEntry)
+                }
             }
         }
     }

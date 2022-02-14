@@ -35,7 +35,7 @@ struct SelectedTrainLineView: View {
                             trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
                 }
                 List(trainStationViewModel.trainStations) { trainStation in
-                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))) {
+                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation)) {
                         Text(trainStation.station_name!)
                     }
                 }

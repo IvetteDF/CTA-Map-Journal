@@ -91,7 +91,7 @@ struct HomePageView: View {
                             .fill(Color(.systemGray))
                             .frame(maxWidth: .infinity, maxHeight: 50)
                         // add NavigationLink to SelectedTrainStationView of nearestTrainStation
-                        NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: nearestTrainStationViewModel.nearestTrainStation, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))) {
+                        NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: nearestTrainStationViewModel.nearestTrainStation)) {
                             Text(nearestTrainStationViewModel.nearestTrainStation.station_name ?? "")
                                 .foregroundColor(Color.white)
                         }

@@ -11,7 +11,6 @@ import Firebase
 struct SelectedJournalEntryView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @State var selectedJournalEntry: JournalEntry
-//    @StateObject var selectedTrainStation: TrainStation
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -24,18 +23,13 @@ struct SelectedJournalEntryView: View {
             }
             .padding(.top, 15.0)
             Spacer()
-                .onAppear {
-                    print("title here")
-                    print(selectedJournalEntry.title)
-                }
             VStack {
                 HStack {
                     Text(selectedJournalEntry.date)
-                    Text(selectedJournalEntry.title)
+                    Text("\(selectedJournalEntry.title): ")
+                    Text(selectedJournalEntry.station_name)
+                        .italic()
                 }
-                Spacer()
-                    .frame(height: 15)
-                Text(selectedJournalEntry.station_name)
             }
             .font(.headline)
             Spacer()
