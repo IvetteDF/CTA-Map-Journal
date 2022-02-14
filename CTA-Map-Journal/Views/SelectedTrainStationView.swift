@@ -10,8 +10,11 @@ import SwiftUI
 struct SelectedTrainStationView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
+    @EnvironmentObject var settings: SettingsViewModel
     @StateObject var selectedTrainStation: TrainStation
+    @State var selectedJournalEntry: JournalEntry
     @State private var newJournalEntry: Bool = false
+    @State private var showingJournalEntry = false
     
     var body: some View {
         VStack {
@@ -43,12 +46,17 @@ struct SelectedTrainStationView: View {
                         }
                 case .loaded:
                     VStack {
-                    EmotionChartView(values: emotionDataViewModel.aggregateEmotionScoresForTrainStationArray, colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: emotionDataViewModel.emotionsArray, backgroundColor: Color.white, innerRadiusFraction: 0.1)
+                    EmotionChartView(values: emotionDataViewModel.aggregateEmotionScoresForTrainStationArray,
+                                     colors: [TrainLines.themeColors[settings.angerColor]!, TrainLines.themeColors[settings.disgustColor]!, TrainLines.themeColors[settings.fearColor]!, TrainLines.themeColors[settings.joyColor]!, TrainLines.themeColors[settings.sadnessColor]!, TrainLines.themeColors[settings.surpriseColor]!],
+                                     names: emotionDataViewModel.emotionsArray,
+                                     backgroundColor: Color.white,
+                                     innerRadiusFraction: 0.1)
                     }
                 case .oopsy:
                     ErrorView()
                 }
             }
+//            .frame(maxWidth: .infinity, maxHeight: 200, alignment: .top)
             NavigationLink(destination: NewJournalEntryView(selectedTrainStation: selectedTrainStation), isActive: $newJournalEntry) {EmptyView()}
             Button("New Journal Entry") {
                 newJournalEntry = true
@@ -67,26 +75,31 @@ struct SelectedTrainStationView: View {
                     .foregroundColor(Color.white)
                     .onAppear {
                         journalEntryViewModel.getJournalEntries(selectedTrainStationName: selectedTrainStation.station_name!)
-                        emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStationName: selectedTrainStation.station_name!)
                     }
             }
             List(journalEntryViewModel.journalEntries.sorted(by: { lhs, rhs in
                 return lhs.timestamp.seconds > rhs.timestamp.seconds
             })) { journalEntry in
-    //            let selectedJournalEntryId = journalEntry.id
-                NavigationLink(destination: SelectedJournalEntryView(selectedJournalEntry: journalEntry)) {
+                Button(action: {
+                    selectedJournalEntry = journalEntry
+                    showingJournalEntry.toggle()
+                }, label: {
                     HStack {
                         Text(journalEntry.date)
                         Text(journalEntry.title)
                     }
-                }
+                    .foregroundColor(.black)
+                })
+            }
+            .sheet(isPresented: $showingJournalEntry) {
+                SelectedJournalEntryView(selectedJournalEntry: selectedJournalEntry)
             }
         }
     }
 }
 
-struct SelectedTrainStationView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectedTrainStationView(selectedTrainStation: TrainStation(stop_id: "30162", id: "30162", station_descriptive_name: "18th (Pink Line)", red: false, blue: false, g: false, brn: false, p: false, y: false, pnk: true, o: false))
-    }
-}
+//struct SelectedTrainStationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectedTrainStationView(selectedTrainStation: TrainStation(stop_id: "30162", id: "30162", station_descriptive_name: "18th (Pink Line)", red: false, blue: false, g: false, brn: false, p: false, y: false, pnk: true, o: false))
+//    }
+//}

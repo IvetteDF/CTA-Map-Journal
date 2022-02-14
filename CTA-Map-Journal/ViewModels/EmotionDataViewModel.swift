@@ -96,28 +96,38 @@ class EmotionDataViewModel: ObservableObject {
                 } else {
                     if let snapshot = snapshot {
                         DispatchQueue.main.async {
-//                            let emotionScores = snapshot.documents[0]["emotionScores"] as! Dictionary<String, Double>
-//                            print(emotionScores["anger"]!)
                             let length = Double(snapshot.documents.count)
+//                            print("length \(length)")
+                            if length == 0.0 {
+                                self.aggregateEmotionScoresForTrainStationArray = [0, 0, 0, 0, 0, 0]
+                                self.loadStateTrainStation = .loaded
+                                return
+                            }
                             for d in snapshot.documents {
+//                                print("******************")
                                 var emotionScores = d["emotionScores"] as! Dictionary<String, Double>
+//                                print("emotionScores: \(emotionScores)") //here
                                 // get sum of emotion scores for d
                                 var sumEmotionScores: Double = 0
                                 for (_, score) in emotionScores {
                                     sumEmotionScores += score
                                 }
+//                                print("sumEmotionScores: \(sumEmotionScores)") //here
                                 // find ratio of emotion score for each emotion in d
                                 for (emotion, score) in emotionScores {
                                     emotionScores[emotion] = (score / sumEmotionScores)
                                 }
+//                                print("emotionScores ratios: \(emotionScores)") //here
                                 // find sum of ratios of emotion scores from d
                                 for (emotion, ratio) in emotionScores {
                                     self.aggregateEmotionScoresForTrainStation[emotion]! += ratio
                                 }
+//                                print("aggregateEmotionScores: \(self.aggregateEmotionScoresForTrainStation)") //here
                             }
                             for (emotion, sumOfRatios) in self.aggregateEmotionScoresForTrainStation {
                                 self.aggregateEmotionScoresForTrainStation[emotion] = sumOfRatios/length
                             }
+//                            print("aggregateEmotionScores: \(self.aggregateEmotionScoresForTrainStation)") //here
                             let sorted = self.aggregateEmotionScoresForTrainStation.sorted(by: <)
                             self.aggregateEmotionScoresForTrainStationArray = sorted.map { $0.value }
                             self.loadStateTrainStation = .loaded
@@ -144,6 +154,11 @@ class EmotionDataViewModel: ObservableObject {
 //                            let emotionScores = snapshot.documents[0]["emotionScores"] as! Dictionary<String, Double>
 //                            print(emotionScores["anger"]!)
                             let length = Double(snapshot.documents.count)
+                            if length == 0.0 {
+                                self.aggregateEmotionScoresArray = [0, 0, 0, 0, 0, 0]
+                                self.loadState = .loaded
+                                return
+                            }
                             for d in snapshot.documents {
                                 var emotionScores = d["emotionScores"] as! Dictionary<String, Double>
                                 // get sum of emotion scores for d

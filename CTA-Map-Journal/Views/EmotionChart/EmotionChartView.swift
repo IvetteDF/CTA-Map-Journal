@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EmotionChartView: View {
     @ObservedObject var emotionDataModelView = EmotionDataViewModel()
+    @EnvironmentObject var settings: SettingsViewModel
     public let values: [Double]
     public var colors: [Color]
     public let names: [String]

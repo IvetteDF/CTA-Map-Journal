@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SelectedTrainLineView: View {
     
@@ -34,7 +35,7 @@ struct SelectedTrainLineView: View {
                             trainStationViewModel.makeTrainStations(selectedTrainLine: selectedTrainLine)            }
                 }
                 List(trainStationViewModel.trainStations) { trainStation in
-                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation)) {
+                    NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: trainStation, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))) {
                         Text(trainStation.station_name!)
                     }
                 }

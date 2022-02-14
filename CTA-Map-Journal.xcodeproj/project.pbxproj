@@ -38,6 +38,10 @@
 		2367A5E827B098D70085B40F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E727B098D50085B40F /* Theme.swift */; };
 		2367A5EA27B0B2F70085B40F /* Collapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E927B0B2F70085B40F /* Collapsible.swift */; };
 		23EA8BC227B3909100DA8053 /* CTALStopsFixed.json in Resources */ = {isa = PBXBuildFile; fileRef = 23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */; };
+		23EA8BC727B6CAE800DA8053 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BC627B6CAE800DA8053 /* MapView.swift */; };
+		23EA8BC927B8561600DA8053 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */; };
+		23EA8BCB27B8562C00DA8053 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BCA27B8562C00DA8053 /* SettingsView.swift */; };
+		23EA8BCD27B9C90A00DA8053 /* AllJournalEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BCC27B9C90900DA8053 /* AllJournalEntriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,10 @@
 		2367A5E727B098D50085B40F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2367A5E927B0B2F70085B40F /* Collapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collapsible.swift; sourceTree = "<group>"; };
 		23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStopsFixed.json; sourceTree = "<group>"; };
+		23EA8BC627B6CAE800DA8053 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		23EA8BCA27B8562C00DA8053 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		23EA8BCC27B9C90900DA8053 /* AllJournalEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,9 @@
 				2341DD7B27A9CD01004E32CC /* SelectedJournalEntryView.swift */,
 				2313316B27B2C8A4005369A7 /* AsyncContentView.swift */,
 				2313316D27B2CB16005369A7 /* ErrorView.swift */,
+				23EA8BC627B6CAE800DA8053 /* MapView.swift */,
+				23EA8BCA27B8562C00DA8053 /* SettingsView.swift */,
+				23EA8BCC27B9C90900DA8053 /* AllJournalEntriesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */,
 				2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */,
 				2367A5E727B098D50085B40F /* Theme.swift */,
+				23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -306,6 +318,7 @@
 				2313316E27B2CB16005369A7 /* ErrorView.swift in Sources */,
 				2367A5E427ADBBE10085B40F /* EmotionSliceView.swift in Sources */,
 				2367A5DE27AD8D390085B40F /* PieChartView.swift in Sources */,
+				23EA8BCD27B9C90A00DA8053 /* AllJournalEntriesView.swift in Sources */,
 				2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */,
 				2367A5D327AC444F0085B40F /* Secrets.swift in Sources */,
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
@@ -315,6 +328,7 @@
 				2367A5EA27B0B2F70085B40F /* Collapsible.swift in Sources */,
 				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,
+				23EA8BC727B6CAE800DA8053 /* MapView.swift in Sources */,
 				2367A5E627ADBBF70085B40F /* EmotionChartView.swift in Sources */,
 				2313316C27B2C8A4005369A7 /* AsyncContentView.swift in Sources */,
 				23043C0127A84A4100F9EDCF /* TrainStationViewModel.swift in Sources */,
@@ -323,6 +337,8 @@
 				23043BD927A7469B00F9EDCF /* CTA_Map_JournalApp.swift in Sources */,
 				23043BF127A7499300F9EDCF /* JournalEntry.swift in Sources */,
 				23043BF527A74B5600F9EDCF /* NearestTrainStationViewModel.swift in Sources */,
+				23EA8BCB27B8562C00DA8053 /* SettingsView.swift in Sources */,
+				23EA8BC927B8561600DA8053 /* SettingsViewModel.swift in Sources */,
 				2367A5DB27AD824F0085B40F /* PieSliceView.swift in Sources */,
 				23043BED27A7492800F9EDCF /* SelectedTrainStationView.swift in Sources */,
 				23043BF727A74CC100F9EDCF /* JournalEntryViewModel.swift in Sources */,

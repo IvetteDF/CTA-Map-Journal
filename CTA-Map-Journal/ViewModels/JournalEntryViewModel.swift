@@ -12,8 +12,59 @@ import SwiftUI
 class JournalEntryViewModel: ObservableObject {
     
     @Published var journalEntries = [JournalEntry]()
+    @Published var allJournalEntries = [JournalEntry]()
     @Published var successfulEntry: Bool = false
     @Published var emptyEntry: Bool = false
+    
+    func deleteJournalEntry(entryToDelete: JournalEntry) {
+        let db = Firestore.firestore()
+        db.collection("JournalEntries").document(entryToDelete.id).delete { error in
+            if error == nil {
+                // no errors
+                DispatchQueue.main.async {
+                    // UI updates
+                    self.journalEntries.removeAll { journalEntry in
+                        return journalEntry.id == entryToDelete.id
+                    }
+                    print(entryToDelete.title)
+                    self.getJournalEntries(selectedTrainStationName: entryToDelete.station_name)
+                }
+            } else {
+                // error handling
+                print(error!)
+            }
+        }
+    }
+    
+    func getAllJournalEntries() {
+        let db = Firestore.firestore()
+        db.collection("JournalEntries")
+            .getDocuments { snapshot, error in
+                if error == nil {
+                    if let snapshot = snapshot {
+                        DispatchQueue.main.async {
+                            self.allJournalEntries = snapshot.documents.map { d in
+                                let timestamp = d["timestamp"] as! Timestamp
+                                let formatter = DateFormatter()
+                                formatter.dateStyle = .short
+                                let date = formatter.string(from: timestamp.dateValue())
+                                
+                                return JournalEntry(id: d.documentID,
+                                                    title: d["title"] as? String ?? "",
+                                                    timestamp: timestamp,
+                                                    date: date,
+                                                    entry: d["entry"] as? String ?? "",
+                                                    station_name: d["station_name"] as? String ?? "",
+                                                    end_station_name: d["end_station_name"] as? String ?? "")
+                            }
+                        }
+                    }
+                } else {
+                    //error handling
+                    print(error!)
+                }
+            }
+    }
     
     func getJournalEntries(selectedTrainStationName: String) {
         let db = Firestore.firestore()

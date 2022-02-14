@@ -8,13 +8,17 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import MapKit
 
 final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.878871700000005, longitude: -87.63590784114558),
+                                               span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
     @Published var userLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
     @ObservedObject var nearestTrainStation: TrainStation
     @Published var allTrainStations: [TrainStation] = []
     @Published var allTrainStationsNames: [String] = []
+//    @Published var allTrainStationsLocations: [(String, UUID, CLLocationCoordinate2D)] = []
     
     
     let locationManager = CLLocationManager()
@@ -41,6 +45,7 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
             self.userLocation = latestLocation
             // call findNearestTrainStation
             self.findNearestTrainStation(userLocation: latestLocation)
+            self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         }
     }
     
@@ -68,8 +73,9 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
            let data = try? Data(contentsOf: url) {
             let decoder = JSONDecoder()
             if let jsonData = try? decoder.decode(JSONData.self, from: data) {
-                let trainStationsDuplicates: [TrainStation] = jsonData.trainStops
+                var trainStationsDuplicates: [TrainStation] = jsonData.trainStops
                 // logic to remove duplicates
+                trainStationsDuplicates.sort { $0.station_name! < $1.station_name! }
                 var prevTrainStationName: String = ""
                 for trainStation in trainStationsDuplicates {
                     if (trainStation.station_name != prevTrainStationName) {
@@ -97,4 +103,21 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
         }
         
     }
+    
+//    func makeAllTrainStationsLocations() {
+//        makeAllTrainStations()
+//        for trainStation in self.allTrainStations {
+//            self.allTrainStationsLocations.append((trainStation.station_name!, UUID() ,trainStation.location!.clLocation))
+//        }
+//    }
+    
+//    func makeJournalEntryMapMarkers() {
+//        @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
+//
+//        journalEntryViewModel.getAllJournalEntries()
+//        let allJournalEntries = journalEntryViewModel.allJournalEntries
+//
+//        self.makeAllTrainStationsLocations()
+//        let locations = self.allTrainStationsLocations
+//    }
 }

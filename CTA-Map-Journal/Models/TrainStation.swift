@@ -60,6 +60,6 @@ struct Location: Decodable {
     var latitudeDouble: Double { Double(latitude)! }
     let longitude: String
     var longitudeDouble: Double { Double(longitude)! }
-    var clLocation: CLLocation { CLLocation(latitude: latitudeDouble, longitude: longitudeDouble) }
+    var clLocation: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: latitudeDouble, longitude: longitudeDouble) }
 }
 
