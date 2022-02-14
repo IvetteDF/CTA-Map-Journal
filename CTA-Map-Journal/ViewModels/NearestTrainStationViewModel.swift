@@ -104,6 +104,19 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
         
     }
     
+    
+    func checkHasJournalEntries() {
+        @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
+        self.makeAllTrainStations()
+        for trainStation in self.allTrainStations {
+            print(trainStation.station_name!)
+            journalEntryViewModel.getJournalEntries(selectedTrainStationName: trainStation.station_name!)
+//            if journalEntryViewModel.journalEntries.count != 0 {
+//                trainStation.hasJournalEntries = true
+//            }
+        }
+    }
+    
 //    func makeAllTrainStationsLocations() {
 //        makeAllTrainStations()
 //        for trainStation in self.allTrainStations {

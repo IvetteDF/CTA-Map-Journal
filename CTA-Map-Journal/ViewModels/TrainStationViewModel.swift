@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Firebase
 
 class TrainStationViewModel: ObservableObject {
 

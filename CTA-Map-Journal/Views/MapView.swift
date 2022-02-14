@@ -15,11 +15,14 @@ struct MapView: View {
     @State var allTrainStations: [TrainStation]
     
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: allTrainStations) {
-            MapAnnotation(coordinate: $0.location!.clLocation) {
-//                NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: $0, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))) {
+        Map(coordinateRegion: $region, interactionModes: MapInteractionModes.all, showsUserLocation: true, annotationItems: allTrainStations) { trainStation in
+            MapAnnotation(coordinate: trainStation.location!.clLocation) {
+                NavigationLink {
+                    SelectedTrainStationView(selectedTrainStation: trainStation, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))
+                } label: {
                     TrainStationMarkerView()
-//                }
+                }
+                .foregroundColor(.black)
             }
         }
             .ignoresSafeArea()
@@ -29,6 +32,7 @@ struct MapView: View {
 struct TrainStationMarkerView: View {
     var body: some View {
         Image(systemName: "circle.circle.fill")
+//            .hoverEffect(.lift)
     }
 }
 
