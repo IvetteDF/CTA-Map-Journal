@@ -32,7 +32,6 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
     func requestLocationAndFindNearestTrainStation() {
         locationManager.requestLocation()
         print("button clicked")
-        print(self.nearestTrainStation)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -59,13 +58,16 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
         for trainStation in allTrainStations {
             // calculate distance between trainStation and userLocation
             let distance: Double =
-            sqrt(pow((trainStation.location!.latitudeDouble - userLocation.coordinate.latitude), 2) + pow((trainStation.location!.longitudeDouble - userLocation.coordinate.longitude), 2))
+            sqrt(pow((trainStation.location!.latitudeDouble - self.userLocation.coordinate.latitude), 2) + pow((trainStation.location!.longitudeDouble - self.userLocation.coordinate.longitude), 2))
             // check for min distance
             if distance < minDistance {
                 minDistance = distance
                 self.nearestTrainStation = trainStation
             }
         }
+        print("*****")
+        print(self.userLocation)
+        print(self.nearestTrainStation.station_name!)
     }
     
     func makeAllTrainStations() {

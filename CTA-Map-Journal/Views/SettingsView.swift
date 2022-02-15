@@ -92,7 +92,7 @@ struct SettingsView: View {
                 .padding(.horizontal, 15)
             }
             Section(header: Text("Credits")) {
-                Text("Train station data provided by the Chicago Transit Authority (CTA).")
+                Text("Train station data and official CTA train route colors provided by the Chicago Transit Authority (CTA).")
             }
         }
     }

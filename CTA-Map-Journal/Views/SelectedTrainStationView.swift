@@ -26,11 +26,11 @@ struct SelectedTrainStationView: View {
                 HStack {
                     // make trainline circles
                     let trainLines = selectedTrainStation.trainLines.map{$0.key}
-                    let values = selectedTrainStation.trainLines.map{$0.value}
-                    ForEach(trainLines.indices) { index in
-                        if values[index] {
+//                    let values = selectedTrainStation.trainLines.map{$0.value}
+                    ForEach(trainLines, id: \.self) { trainLine in
+                        if selectedTrainStation.trainLines[trainLine]! {
                             Circle()
-                                .fill(TrainLines.trainLineColors[trainLines[index]]!)
+                                .fill(TrainLines.trainLineColors[trainLine]!)
                                 .frame(width: 40)
                         }
                     }

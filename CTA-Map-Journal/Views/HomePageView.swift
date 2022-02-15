@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 
 struct HomePageView: View {
-    @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
+    @StateObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     @StateObject var emotionDataViewModel = EmotionDataViewModel()
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @StateObject var settings = SettingsViewModel()
@@ -35,7 +35,7 @@ struct HomePageView: View {
                                 .padding(.leading, 15)
                         }
                         Spacer()
-                        NavigationLink(destination: AllJournalEntriesView(allJournalEntries: journalEntryViewModel.allJournalEntries)) {
+                        NavigationLink(destination: AllJournalEntriesView()) {
                             Image(systemName: "book.fill")
                                 .foregroundColor(.white)
                                 .font(.system(size: 30))
