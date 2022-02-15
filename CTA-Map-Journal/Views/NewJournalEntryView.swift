@@ -42,7 +42,7 @@ struct NewJournalEntryView: View {
                     .fill(Color.black)
                     .frame(maxWidth: .infinity, maxHeight: 50)
                 HStack {
-                    Text("End:")
+                    Text("(Optional) Select End:")
                         .font(.headline)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.leading)
@@ -75,9 +75,10 @@ struct NewJournalEntryView: View {
                         journalEntryViewModel.addJournalEntry(title: title, entry: entry, station_name: selectedTrainStation.station_name!, end_station_name: endTrainStationName)
                     }
                 }
-                .frame(width: 140, height: 30)
-                .foregroundColor(Color.white)
-                .background(Color.black)
+                .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+                .background(.black)
+                .cornerRadius(20)
                 .alert("A journal entry needs a title and an entry :) Try again", isPresented: $journalEntryViewModel.emptyEntry) {
                     Button("<3", role: .cancel) {
                         journalEntryViewModel.setFalse()

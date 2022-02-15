@@ -63,8 +63,9 @@ struct SelectedTrainStationView: View {
                 newJournalEntry = true
             }
             .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-            .background(Color.black)
-            .foregroundColor(Color.white)
+            .foregroundColor(.white)
+            .background(.black)
+            .cornerRadius(20)
             .font(.body)
                 
             ZStack {

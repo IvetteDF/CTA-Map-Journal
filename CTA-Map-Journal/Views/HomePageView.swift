@@ -28,22 +28,24 @@ struct HomePageView: View {
                         NavigationLink(destination: MapView(region: nearestTrainStationViewModel.region, allTrainStations: nearestTrainStationViewModel.allTrainStations)) {
                             Image(systemName: "map.fill")
                                 .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, maxHeight: 20, alignment: .leading)
+                                .font(.system(size: 30))
                                 .padding(.leading, 15)
                         }
+                        Spacer()
                         NavigationLink(destination: AllJournalEntriesView(allJournalEntries: journalEntryViewModel.allJournalEntries)) {
                             Image(systemName: "book.fill")
                                 .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, maxHeight: 20, alignment: .center)
+                                .font(.system(size: 30))
                                 .padding(.horizontal, 15)
                                 .onAppear {
                                     journalEntryViewModel.getAllJournalEntries()
                                 }
                         }
+                        Spacer()
                         NavigationLink(destination: SettingsView()) {
                             Image(systemName: "gearshape.fill")
                                 .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, maxHeight: 20, alignment: .trailing)
+                                .font(.system(size: 30))
                                 .padding(.trailing, 15)
                                 .onAppear {
                                     nearestTrainStationViewModel.makeAllTrainStations()
@@ -83,7 +85,10 @@ struct HomePageView: View {
                                 
                             LocationButton (.currentLocation) {
                                 nearestTrainStationViewModel.requestLocationAndFindNearestTrainStation()
-                            } .foregroundColor(.white)
+                            }
+                            .foregroundColor(.white)
+                            .background(Color("CTAPink"))
+                            .cornerRadius(20)
                             
                         }
                     }

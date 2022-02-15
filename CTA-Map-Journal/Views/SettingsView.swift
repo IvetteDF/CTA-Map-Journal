@@ -83,6 +83,9 @@ struct SettingsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(.horizontal, 15)
             }
+            Section(header: Text("Credits")) {
+                Text("Train station data provided by the Chicago Transit Authority (CTA).")
+            }
         }
     }
 }
