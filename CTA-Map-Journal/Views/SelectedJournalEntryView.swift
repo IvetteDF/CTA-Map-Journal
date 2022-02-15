@@ -24,28 +24,51 @@ struct SelectedJournalEntryView: View {
             .padding(.top, 15.0)
             Spacer()
             VStack {
-                HStack {
-                    Text(selectedJournalEntry.date)
-                    Text("\(selectedJournalEntry.title): ")
-                    Text(selectedJournalEntry.station_name)
-                        .italic()
+                Text(selectedJournalEntry.station_name)
+                    .italic()
+                ZStack{
+                    Rectangle()
+                        .fill(Color.black)
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                    HStack {
+                        Text(selectedJournalEntry.date)
+                        Text(selectedJournalEntry.title)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                    .padding(.horizontal, 10.0)
                 }
             }
             .font(.headline)
             Spacer()
                 .frame(height: 15)
             Text(selectedJournalEntry.entry)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding(.all, 10.0)
+            Spacer()
+            ZStack{
+                Rectangle()
+                    .fill(Color(.systemGray))
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                Text("Link:")
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                .padding(.horizontal, 10.0)
+            }
+            Link("\(selectedJournalEntry.link)", destination: URL(string: selectedJournalEntry.link)!) 
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding(.all, 10.0)
             Spacer()
             Button("Delete Entry") {
                 dismiss()
                 journalEntryViewModel.deleteJournalEntry(entryToDelete: selectedJournalEntry)
             }
-                .padding(.all, 10.0)
-                .background(Color.black)
-                .foregroundColor(Color.white)
-                .font(.body)
-            Spacer()
-                .frame(height: 15)
+            .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+            .foregroundColor(.white)
+            .background(.black)
+            .cornerRadius(20)
+//            Spacer()
+//                .frame(height: 15)
         }
     }
 }

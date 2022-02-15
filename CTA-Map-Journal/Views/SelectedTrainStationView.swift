@@ -13,7 +13,7 @@ struct SelectedTrainStationView: View {
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @EnvironmentObject var settings: SettingsViewModel
     @StateObject var selectedTrainStation: TrainStation
-    @State private var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: "")
+    @State private var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", link: "", station_name: "", end_station_name: "")
     @State private var newJournalEntry: Bool = false
     @State private var showingJournalEntry = false
     

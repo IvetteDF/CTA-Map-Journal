@@ -54,6 +54,7 @@ class JournalEntryViewModel: ObservableObject {
                                                     timestamp: timestamp,
                                                     date: date,
                                                     entry: d["entry"] as? String ?? "",
+                                                    link: d["link"] as? String ?? "",
                                                     station_name: d["station_name"] as? String ?? "",
                                                     end_station_name: d["end_station_name"] as? String ?? "")
                             }
@@ -87,6 +88,7 @@ class JournalEntryViewModel: ObservableObject {
                                                  timestamp: timestamp,
                                                  date: date,
                                                  entry: d["entry"] as? String ?? "",
+                                                 link: d["link"] as? String ?? "",
                                                  station_name: d["station_name"] as? String ?? "",
                                                  end_station_name: d["end_station_name"] as? String ?? "")
                          }
@@ -98,7 +100,7 @@ class JournalEntryViewModel: ObservableObject {
         }
     }
     
-    func addJournalEntry(title: String, entry: String, station_name: String, end_station_name: String = "", analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
+    func addJournalEntry(title: String, entry: String, link: String, station_name: String, end_station_name: String = "", analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
         // check for empty entry or title
         if ((entry == "") || (title == "")) {
             self.emptyEntry = true
@@ -113,6 +115,7 @@ class JournalEntryViewModel: ObservableObject {
             .addDocument(data: ["title":title,
                                 "timestamp":timestamp,
                                 "entry":entry,
+                                "link":link,
                                 "station_name":station_name,
                                 "end_station_name": end_station_name,
                                 "analyzeEmotion":analyzeEmotion,
