@@ -10,7 +10,7 @@ import Firebase
 
 struct SelectedJournalEntryView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
-    @State var selectedJournalEntry: JournalEntry
+    @Binding var selectedJournalEntry: JournalEntry
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

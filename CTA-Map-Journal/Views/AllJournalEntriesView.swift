@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AllJournalEntriesView: View {
     @State var allJournalEntries: [JournalEntry]
-    @State var selectedJournalEntry: JournalEntry
     @State private var showingJournalEntry = false
+    @State var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: "")
     
     var body: some View {
         List(allJournalEntries.sorted(by: { lhs, rhs in
             return lhs.timestamp.seconds > rhs.timestamp.seconds
         })) { journalEntry in
             Button(action: {
-                selectedJournalEntry = journalEntry
                 showingJournalEntry.toggle()
             }, label: {
                 HStack {
@@ -26,9 +26,10 @@ struct AllJournalEntriesView: View {
                 }
                 .foregroundColor(.black)
             })
+            .sheet(isPresented: $showingJournalEntry) {
+                    SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
         }
-        .sheet(isPresented: $showingJournalEntry) {
-            SelectedJournalEntryView(selectedJournalEntry: selectedJournalEntry)
+        .navigationTitle("All Journal Entries")
         }
     }
 }

@@ -19,6 +19,7 @@ struct HomePageView: View {
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
+                Image("TrainOfThought")
                 ZStack{
                     Rectangle()
                         .fill(Color.black)
@@ -30,7 +31,7 @@ struct HomePageView: View {
                                 .frame(maxWidth: .infinity, maxHeight: 20, alignment: .leading)
                                 .padding(.leading, 15)
                         }
-                        NavigationLink(destination: AllJournalEntriesView(allJournalEntries: journalEntryViewModel.allJournalEntries, selectedJournalEntry: JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: ""))) {
+                        NavigationLink(destination: AllJournalEntriesView(allJournalEntries: journalEntryViewModel.allJournalEntries)) {
                             Image(systemName: "book.fill")
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, maxHeight: 20, alignment: .center)
@@ -69,7 +70,7 @@ struct HomePageView: View {
                 }
                 Divider()
                 Spacer()
-                    .navigationTitle("CTA Map Journal")
+//                    .navigationTitle("CTA Map Journal")
                 VStack (spacing: 0) {
                     ZStack {
                         Rectangle()
@@ -115,6 +116,7 @@ struct HomePageView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
         }
         .environmentObject(settings)
     }

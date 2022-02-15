@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SelectedTrainStationView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @EnvironmentObject var settings: SettingsViewModel
     @StateObject var selectedTrainStation: TrainStation
+    @State private var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", station_name: "", end_station_name: "")
     @State private var newJournalEntry: Bool = false
     @State private var showingJournalEntry = false
     
@@ -81,6 +83,7 @@ struct SelectedTrainStationView: View {
             })) { journalEntry in
                 Button(action: {
                     showingJournalEntry.toggle()
+                    selectedJournalEntry = journalEntry
                 }, label: {
                     HStack {
                         Text(journalEntry.date)
@@ -88,9 +91,9 @@ struct SelectedTrainStationView: View {
                     }
                     .foregroundColor(.black)
                 })
-                .sheet(isPresented: $showingJournalEntry) {
-                    SelectedJournalEntryView(selectedJournalEntry: journalEntry)
-                }
+            }
+            .sheet(isPresented: $showingJournalEntry) {
+                SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
             }
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewJournalEntryView: View {
-    @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
+    @StateObject var journalEntryViewModel = JournalEntryViewModel()
     @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     
@@ -56,12 +56,13 @@ struct NewJournalEntryView: View {
         }
         VStack {
             TextField("Title", text: $title)
-                .padding(.horizontal)
+                .padding(.horizontal, 10.0)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextEditor(text: $entry)
                 .frame(width: 350.0)
-                .padding(.vertical, 10.0)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .padding(.all, 10.0)
+                .border(Color(.systemGray5), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .cornerRadius(10)
             HStack {
                 Toggle("Analyze Emotion?", isOn: $analyzeEmotion)
                     .padding(.leading, 10)

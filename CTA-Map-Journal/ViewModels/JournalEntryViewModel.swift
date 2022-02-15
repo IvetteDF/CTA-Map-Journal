@@ -23,11 +23,11 @@ class JournalEntryViewModel: ObservableObject {
                 // no errors
                 DispatchQueue.main.async {
                     // UI updates
-                    self.journalEntries.removeAll { journalEntry in
-                        return journalEntry.id == entryToDelete.id
-                    }
-                    print(entryToDelete.title)
-                    self.getJournalEntries(selectedTrainStationName: entryToDelete.station_name)
+//                    self.journalEntries.removeAll { journalEntry in
+//                        return journalEntry.id == entryToDelete.id
+//                    }
+                    print("Deleted \(entryToDelete.title)")
+//                    self.getJournalEntries(selectedTrainStationName: entryToDelete.station_name)
                 }
             } else {
                 // error handling
@@ -70,7 +70,7 @@ class JournalEntryViewModel: ObservableObject {
         let db = Firestore.firestore()
         db.collection("JournalEntries")
             .whereField("station_name", isEqualTo: selectedTrainStationName)
-            .getDocuments { snapshot, error in
+            .addSnapshotListener { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
