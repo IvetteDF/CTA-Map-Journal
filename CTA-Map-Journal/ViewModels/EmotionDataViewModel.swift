@@ -84,7 +84,7 @@ class EmotionDataViewModel: ObservableObject {
         }
     }
     
-    func getEmotionDataForTrainStation (selectedTrainStationName: String) {
+    func getEmotionDataForTrainStation (selectedTrainStationName: String, startDate: Date) {
         let db = Firestore.firestore()
         db.collection("JournalEntries")
             .whereField("station_name", isEqualTo: selectedTrainStationName)
@@ -139,10 +139,11 @@ class EmotionDataViewModel: ObservableObject {
             }
     }
     
-    func getAllEmotionData() {
+    func getAllEmotionData(startDate: Date) {
         let db = Firestore.firestore()
         db.collection("JournalEntries")
             .whereField("analyzeEmotion", isEqualTo: true)
+            .whereField("timestamp", isGreaterThanOrEqualTo: Timestamp(date: startDate))
             .getDocuments { snapshot, error in
                 if error != nil {
                     // error handling
@@ -153,6 +154,14 @@ class EmotionDataViewModel: ObservableObject {
                         DispatchQueue.main.async {
 //                            let emotionScores = snapshot.documents[0]["emotionScores"] as! Dictionary<String, Double>
 //                            print(emotionScores["anger"]!)
+                            self.aggregateEmotionScores = ["anger": 0,
+                                                           "disgust": 0,
+                                                           "sadness": 0,
+                                                           "joy": 0,
+                                                           "surprise": 0,
+                                                           "fear": 0]
+                            self.aggregateEmotionScoresArray = []
+                            
                             let length = Double(snapshot.documents.count)
                             if length == 0.0 {
                                 self.aggregateEmotionScoresArray = [0, 0, 0, 0, 0, 0]

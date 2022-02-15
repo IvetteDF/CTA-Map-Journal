@@ -16,5 +16,7 @@ class SettingsViewModel: ObservableObject {
     @Published var sadnessColor: String = "Purple"
     @Published var surpriseColor: String = "Orange"
     
+    @Published var startDate: Date = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
+    
 }
 

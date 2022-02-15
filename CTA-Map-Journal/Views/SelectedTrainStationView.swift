@@ -43,7 +43,7 @@ struct SelectedTrainStationView: View {
                 case .loading:
                     ProgressView()
                         .onAppear {
-                            emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStationName: selectedTrainStation.station_name!)
+                            emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStationName: selectedTrainStation.station_name!, startDate: settings.startDate)
                         }
                 case .loaded:
                     VStack {

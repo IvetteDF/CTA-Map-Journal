@@ -12,7 +12,7 @@ import Firebase
 
 struct HomePageView: View {
     @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
-    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
+    @StateObject var emotionDataViewModel = EmotionDataViewModel()
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @StateObject var settings = SettingsViewModel()
     
@@ -20,6 +20,9 @@ struct HomePageView: View {
         NavigationView {
             VStack (spacing: 0) {
                 Image("TrainOfThought")
+                    .onAppear {
+                        emotionDataViewModel.getAllEmotionData(startDate: settings.startDate)
+                    }
                 ZStack{
                     Rectangle()
                         .fill(Color.black)
@@ -57,7 +60,6 @@ struct HomePageView: View {
                     switch emotionDataViewModel.loadState {
                     case .loading:
                         ProgressView()
-                            .onAppear(perform: emotionDataViewModel.getAllEmotionData)
                     case .loaded:
                         VStack {
                             EmotionChartView(values: emotionDataViewModel.aggregateEmotionScoresArray,

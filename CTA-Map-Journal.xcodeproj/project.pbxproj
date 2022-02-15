@@ -42,6 +42,7 @@
 		23EA8BC927B8561600DA8053 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */; };
 		23EA8BCB27B8562C00DA8053 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BCA27B8562C00DA8053 /* SettingsView.swift */; };
 		23EA8BCD27B9C90A00DA8053 /* AllJournalEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BCC27B9C90900DA8053 /* AllJournalEntriesView.swift */; };
+		23EB49BF27BC3C04004B70D4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23EB49BE27BC3C03004B70D4 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		23EA8BCA27B8562C00DA8053 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23EA8BCC27B9C90900DA8053 /* AllJournalEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntriesView.swift; sourceTree = "<group>"; };
+		23EB49BE27BC3C03004B70D4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		23043BCC27A7469A00F9EDCF = {
 			isa = PBXGroup;
 			children = (
+				23EB49BE27BC3C03004B70D4 /* README.md */,
 				2367A5D427AC45CC0085B40F /* .gitignore */,
 				2367A5CD27AAF6240085B40F /* TestLocations */,
 				23043BD727A7469B00F9EDCF /* CTA-Map-Journal */,
@@ -302,6 +305,7 @@
 				2367A5D527AC45CC0085B40F /* .gitignore in Resources */,
 				2341DD7A27A88C9B004E32CC /* CTALStops.json in Resources */,
 				23EA8BC227B3909100DA8053 /* CTALStopsFixed.json in Resources */,
+				23EB49BF27BC3C04004B70D4 /* README.md in Resources */,
 				23043BE027A746A400F9EDCF /* Preview Assets.xcassets in Resources */,
 				23043BDD27A746A400F9EDCF /* Assets.xcassets in Resources */,
 				23043BF927A74E4800F9EDCF /* GoogleService-Info.plist in Resources */,

@@ -13,6 +13,14 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
+            Section(header: Text("Filter Mood Data")) {
+                Text("Select the start date for all mood data analysis:")
+                Group {
+                    DatePicker(selection: $settings.startDate, in: ...Date(), displayedComponents: .date) {
+                        Text("Start Date:")
+                    }
+                }
+            }
             Section(header: Text("Mood Chart Colors")) {
                 Text("Select your preferred color scheme:")
                     .navigationTitle("Settings")
