@@ -39,7 +39,8 @@ Users have access to their journal entries either in a list of all journal entri
     }
     ```
 6. When first running the app, a DomainError will print in console from Firebase asking you to create an index for the firebase query in the `EmotionDataViewModel` method `getAllEmotionData`. Follow the url given in the error and build an index in your Firestore database. It may take a few minutes to build.
-7. Watch this [video](https://youtu.be/3GwjfUFyY6M)
+7. [Create a .gitignore file](https://www.toptal.com/developers/gitignore) and add all dependencies as well as the Secrets.swift file and your GoogleService-Info.plist file.
+8. Watch this [video](https://youtu.be/3GwjfUFyY6M)
 
 The **Train of Thought** app was developed by [Ada Developers Academy](https://adadevelopersacademy.org/) cohort 16 student [Ivette Fernandez](https://www.linkedin.com/in/ivettedfernandez/).
     
