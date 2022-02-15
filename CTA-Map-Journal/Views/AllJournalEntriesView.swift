@@ -11,7 +11,7 @@ import Firebase
 struct AllJournalEntriesView: View {
     @State var allJournalEntries: [JournalEntry]
     @State private var showingJournalEntry = false
-    @State var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", link: "", station_name: "", end_station_name: "")
+    @State var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", links: [""], station_name: "", end_station_name: "")
     
     var body: some View {
         List(allJournalEntries.sorted(by: { lhs, rhs in

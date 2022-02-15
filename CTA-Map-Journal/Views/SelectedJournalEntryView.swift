@@ -50,14 +50,19 @@ struct SelectedJournalEntryView: View {
                 Rectangle()
                     .fill(Color(.systemGray))
                     .frame(maxWidth: .infinity, maxHeight: 50)
-                Text("Link:")
+                Text("Link(s):")
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                 .padding(.horizontal, 10.0)
             }
-            Link("\(selectedJournalEntry.link)", destination: URL(string: selectedJournalEntry.link)!) 
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .padding(.all, 10.0)
+            VStack(spacing: 0) {
+                ForEach(selectedJournalEntry.links, id: \.self) { link in
+                    Link("\(link)", destination: URL(string: link) ?? URL(fileURLWithPath: ""))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding(.horizontal, 10.0)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             Spacer()
             Button("Delete Entry") {
                 dismiss()
@@ -67,8 +72,6 @@ struct SelectedJournalEntryView: View {
             .foregroundColor(.white)
             .background(.black)
             .cornerRadius(20)
-//            Spacer()
-//                .frame(height: 15)
         }
     }
 }

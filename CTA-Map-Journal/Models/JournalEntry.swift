@@ -14,7 +14,7 @@ struct JournalEntry: Identifiable {
     var timestamp: Timestamp
     var date: String
     var entry: String
-    var link: String
+    var links: [String]
     var station_name: String
     var end_station_name: String
 }
