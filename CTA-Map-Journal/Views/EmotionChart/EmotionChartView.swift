@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct EmotionChartView: View {
+    
     @ObservedObject var emotionDataModelView = EmotionDataViewModel()
     @EnvironmentObject var settings: SettingsViewModel
+    
     public let values: [Double]
     public var colors: [Color]
     public let names: [String]
-    
     public var backgroundColor: Color
     public var innerRadiusFraction: CGFloat
     
@@ -37,29 +38,17 @@ struct EmotionChartView: View {
                     ForEach(0..<self.values.count) { i in
                         EmotionSliceView(emotionSliceData: self.slices[i])
                     }
-                    .frame(width: geometry.size.width, height: 0.32 * geometry.size.width)
-                    
-//                    Circle()
-//                        .fill(self.backgroundColor)
-//                        .frame(width: geometry.size.width * innerRadiusFraction, height: geometry.size.width * innerRadiusFraction)
+                        .frame(width: geometry.size.width, height: 0.32 * geometry.size.width)
                 }
                 Text("Mood")
                 EmotionChartRows(colors: self.colors, names: self.names, values: self.values.map { String($0) }, percents: self.values.map {String(format: "%.0f%%", $0 * 100)})
                     .foregroundColor(Color.black)
             }
-            .background(self.backgroundColor)
-            .foregroundColor(Color.black)
+                .background(self.backgroundColor)
+                .foregroundColor(Color.black)
         }
     }
 }
-
-struct EmotionChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        // my values passed in will be the emotion ratios
-        EmotionChartView(values: [0.26475899291069993, 0.029184726665766533, 0.029140916889612543, 0.8637116558308374, 0.09292698462437327, 0.05361005641204363], colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: ["anger", "disgust", "fear", "joy", "sadness", "surprise"], backgroundColor: Color.white, innerRadiusFraction: 0.2)
-    }
-}
-
 
 struct EmotionChartRows: View {
     var colors: [Color]
@@ -82,10 +71,17 @@ struct EmotionChartRows: View {
                     Text(self.percents[i])
                             .foregroundColor(Color.gray)
                 }
-                .padding(.horizontal, 10.0)
+                    .padding(.horizontal, 10.0)
                 
                 
             }
         }
+    }
+}
+
+struct EmotionChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        // my values passed in will be the emotion ratios
+        EmotionChartView(values: [0.26475899291069993, 0.029184726665766533, 0.029140916889612543, 0.8637116558308374, 0.09292698462437327, 0.05361005641204363], colors: [Color.purple, Color("CTAGreen"), Color("CTAYellow"), Color("CTARed"), Color("CTABlue"), Color("CTAOrange")], names: ["anger", "disgust", "fear", "joy", "sadness", "surprise"], backgroundColor: Color.white, innerRadiusFraction: 0.2)
     }
 }

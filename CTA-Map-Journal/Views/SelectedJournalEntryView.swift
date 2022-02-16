@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct SelectedJournalEntryView: View {
+    
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @Binding var selectedJournalEntry: JournalEntry
     @Environment(\.dismiss) var dismiss
@@ -21,7 +22,7 @@ struct SelectedJournalEntryView: View {
                 Image(systemName: "chevron.down")
                     .foregroundColor(.black)
             }
-            .padding(.top, 15.0)
+                .padding(.top, 15.0)
             Spacer()
             VStack {
                 Text(selectedJournalEntry.station_name)
@@ -34,12 +35,12 @@ struct SelectedJournalEntryView: View {
                         Text(selectedJournalEntry.date)
                         Text(selectedJournalEntry.title)
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-                    .padding(.horizontal, 10.0)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                        .padding(.horizontal, 10.0)
                 }
             }
-            .font(.headline)
+                .font(.headline)
             Spacer()
                 .frame(height: 15)
             Text(selectedJournalEntry.entry)
@@ -51,9 +52,9 @@ struct SelectedJournalEntryView: View {
                     .fill(Color(.systemGray))
                     .frame(maxWidth: .infinity, maxHeight: 50)
                 Text("Link(s):")
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-                .padding(.horizontal, 10.0)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                    .padding(.horizontal, 10.0)
             }
             VStack(spacing: 0) {
                 ForEach(selectedJournalEntry.links, id: \.self) { link in
@@ -62,16 +63,16 @@ struct SelectedJournalEntryView: View {
                         .padding(.horizontal, 10.0)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             Spacer()
             Button("Delete Entry") {
                 dismiss()
                 journalEntryViewModel.deleteJournalEntry(entryToDelete: selectedJournalEntry)
             }
-            .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-            .foregroundColor(.white)
-            .background(.black)
-            .cornerRadius(20)
+                .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+                .background(.black)
+                .cornerRadius(20)
         }
     }
 }

@@ -11,10 +11,11 @@ import MapKit
 import Firebase
 
 struct HomePageView: View {
+    
     @StateObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
     @StateObject var emotionDataViewModel = EmotionDataViewModel()
-    @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     @StateObject var settings = SettingsViewModel()
+    @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
     
     var body: some View {
         NavigationView {
@@ -53,7 +54,7 @@ struct HomePageView: View {
                                 .onAppear {
                                     nearestTrainStationViewModel.makeAllTrainStations()
                                 }
-                        }
+                            }
                     }
                 }
                 ScrollView {
@@ -74,7 +75,6 @@ struct HomePageView: View {
                 }
                 Divider()
                 Spacer()
-//                    .navigationTitle("CTA Map Journal")
                 VStack (spacing: 0) {
                     ZStack {
                         Rectangle()
@@ -88,17 +88,15 @@ struct HomePageView: View {
                             LocationButton (.currentLocation) {
                                 nearestTrainStationViewModel.requestLocationAndFindNearestTrainStation()
                             }
-                            .foregroundColor(.white)
-                            .background(Color("CTAPink"))
-                            .cornerRadius(20)
-                            
+                                .foregroundColor(.white)
+                                .background(Color("CTAPink"))
+                                .cornerRadius(20)
                         }
                     }
                     ZStack {
                         Rectangle()
                             .fill(Color(.systemGray))
                             .frame(maxWidth: .infinity, maxHeight: 50)
-                        // add NavigationLink to SelectedTrainStationView of nearestTrainStation
                         NavigationLink(destination: SelectedTrainStationView(selectedTrainStation: nearestTrainStationViewModel.nearestTrainStation)) {
                             Text(nearestTrainStationViewModel.nearestTrainStation.station_name ?? "")
                                 .foregroundColor(Color.white)
@@ -123,9 +121,9 @@ struct HomePageView: View {
                     }
                 }
             }
-            .navigationBarHidden(true)
+                .navigationBarHidden(true)
         }
-        .environmentObject(settings)
+            .environmentObject(settings)
     }
 }
 

@@ -10,10 +10,18 @@ import Firebase
 
 struct SelectedTrainStationView: View {
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
-    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
-    @EnvironmentObject var settings: SettingsViewModel
+    @StateObject var emotionDataViewModel = EmotionDataViewModel()
     @StateObject var selectedTrainStation: TrainStation
-    @State private var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", links: [""], station_name: "", end_station_name: "")
+    @EnvironmentObject var settings: SettingsViewModel
+    
+    @State private var selectedJournalEntry: JournalEntry = JournalEntry(id: "",
+                                                                         title: "",
+                                                                         timestamp: Timestamp(seconds: 0, nanoseconds: 0),
+                                                                         date: "",
+                                                                         entry: "",
+                                                                         links: [""],
+                                                                         station_name: "",
+                                                                         end_station_name: "")
     @State private var newJournalEntry: Bool = false
     @State private var showingJournalEntry = false
     
@@ -23,10 +31,12 @@ struct SelectedTrainStationView: View {
                 Rectangle()
                     .fill(Color(.systemGray))
                     .frame(maxWidth: .infinity, maxHeight: 50)
+                    .onAppear {
+                        emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStationName: selectedTrainStation.station_name!, startDate: settings.startDate)
+                    }
                 HStack {
                     // make trainline circles
                     let trainLines = selectedTrainStation.trainLines.map{$0.key}
-//                    let values = selectedTrainStation.trainLines.map{$0.value}
                     ForEach(trainLines, id: \.self) { trainLine in
                         if selectedTrainStation.trainLines[trainLine]! {
                             Circle()
@@ -35,16 +45,14 @@ struct SelectedTrainStationView: View {
                         }
                     }
                 }
-            } .frame(maxWidth: .infinity, maxHeight: 50, alignment: .top)
+            }
+                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .top)
             Spacer()
                 .navigationTitle(selectedTrainStation.station_name!)
             ScrollView {
                 switch emotionDataViewModel.loadStateTrainStation {
                 case .loading:
                     ProgressView()
-                        .onAppear {
-                            emotionDataViewModel.getEmotionDataForTrainStation(selectedTrainStationName: selectedTrainStation.station_name!, startDate: settings.startDate)
-                        }
                 case .loaded:
                     VStack {
                     EmotionChartView(values: emotionDataViewModel.aggregateEmotionScoresForTrainStationArray,
@@ -57,16 +65,15 @@ struct SelectedTrainStationView: View {
                     ErrorView()
                 }
             }
-//            .frame(maxWidth: .infinity, maxHeight: 200, alignment: .top)
             NavigationLink(destination: NewJournalEntryView(selectedTrainStation: selectedTrainStation), isActive: $newJournalEntry) {EmptyView()}
             Button("New Journal Entry") {
                 newJournalEntry = true
             }
-            .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-            .foregroundColor(.white)
-            .background(.black)
-            .cornerRadius(20)
-            .font(.body)
+                .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+                .background(.black)
+                .cornerRadius(20)
+                .font(.body)
                 
             ZStack {
                 Rectangle()
@@ -90,12 +97,12 @@ struct SelectedTrainStationView: View {
                         Text(journalEntry.date)
                         Text(journalEntry.title)
                     }
-                    .foregroundColor(.black)
+                        .foregroundColor(.black)
                 })
             }
-            .sheet(isPresented: $showingJournalEntry) {
-                SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
-            }
+                .sheet(isPresented: $showingJournalEntry) {
+                    SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
+                }
         }
     }
 }

@@ -10,7 +10,6 @@ import MapKit
 import Firebase
 
 struct MapView: View {
-//    @StateObject var mapViewModel = NearestTrainStationViewModel()
     @State var region: MKCoordinateRegion
     @State var allTrainStations: [TrainStation]
     
@@ -32,13 +31,6 @@ struct TrainStationMarkerView: View {
     var body: some View {
         Image(systemName: "circle.circle.fill")
             .foregroundColor(.black)
-    }
-}
-
-struct JournalEntryMarkerView: View {
-    var body: some View {
-        Image(systemName: "book.fill")
-            .tint(.pink)
     }
 }
 

@@ -33,13 +33,6 @@ struct EmotionSliceView: View {
                         clockwise: false)
                 }
                 .fill(emotionSliceData.color)
-                
-//                Text(emotionSliceData.text)
-//                    .position(
-//                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadians)),
-//                        y: geometry.size.height * 0.2 * CGFloat(1.0 - 0.78 * sin(self.midRadians))// - geometry.size.height * 0.2
-//                    )
-//                    .foregroundColor(Color.black)
             }
         }
         .aspectRatio(1, contentMode: .fit)

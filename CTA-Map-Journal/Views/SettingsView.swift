@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     @EnvironmentObject var settings: SettingsViewModel
 
     
@@ -31,10 +32,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
                 Group{
                     Text("Disgust:")
                     Picker("Disgust:", selection: $settings.disgustColor) {
@@ -42,10 +43,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
                 Group{
                     Text("Fear:")
                     Picker("Fear:", selection: $settings.fearColor) {
@@ -53,10 +54,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
                 Group{
                     Text("Joy:")
                     Picker("Joy:", selection: $settings.joyColor) {
@@ -64,10 +65,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
                 Group{
                     Text("Sadness:")
                     Picker("Sadness:", selection: $settings.sadnessColor) {
@@ -75,10 +76,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
                 Group{
                     Text("Surprise:")
                     Picker("Surprise:", selection: $settings.surpriseColor) {
@@ -86,10 +87,10 @@ struct SettingsView: View {
                             Text(color)
                         }
                     }
-                    .pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 15)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(.horizontal, 15)
             }
             Section(header: Text("Credits")) {
                 Text("Train station data and official CTA train route colors provided by the Chicago Transit Authority (CTA).")

@@ -11,13 +11,11 @@ import Firebase
 struct SelectedTrainLineView: View {
     
     @ObservedObject var trainStationViewModel = TrainStationViewModel()
+    
     @State var selectedTrainLine: String
     @State var selectedTrainLineValue: String
     
     var body: some View {
-        
-       // ZStack {
-
             VStack {
                 ZStack {
                     Rectangle()
@@ -40,7 +38,6 @@ struct SelectedTrainLineView: View {
                     }
                 }
             }
-       // }
     }
 }
 

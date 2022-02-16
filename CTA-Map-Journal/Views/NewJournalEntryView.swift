@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct NewJournalEntryView: View {
-    @StateObject var journalEntryViewModel = JournalEntryViewModel()
-    @ObservedObject var emotionDataViewModel = EmotionDataViewModel()
     @ObservedObject var nearestTrainStationViewModel = NearestTrainStationViewModel()
-    
+    @StateObject var journalEntryViewModel = JournalEntryViewModel()
+    @StateObject var emotionDataViewModel = EmotionDataViewModel()
     @StateObject var selectedTrainStation: TrainStation
+    
     @State var title = ""
     @State var entry = ""
     @State var link = ""
@@ -65,7 +65,6 @@ struct NewJournalEntryView: View {
                 .padding(.all, 10.0)
                 .border(Color(.systemGray5), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
-            
             Button {
                 if links.count < 3 {
                     links.append("")
@@ -76,8 +75,8 @@ struct NewJournalEntryView: View {
                         .foregroundColor(.black)
                     Text("Add a link")
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 10.0)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10.0)
             }
             VStack {
                 ForEach(links.indices, id: \.self) { index in
@@ -86,9 +85,6 @@ struct NewJournalEntryView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
             }
-//            TextField("Optional Link", text: $link)
-//                .padding(.horizontal, 10.0)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
             HStack {
                 Toggle("Analyze Emotion?", isOn: $analyzeEmotion)
                     .padding(.leading, 10)
@@ -101,27 +97,36 @@ struct NewJournalEntryView: View {
                         journalEntryViewModel.addJournalEntry(title: title, entry: entry, links: links, station_name: selectedTrainStation.station_name!, end_station_name: endTrainStationName)
                     }
                 }
-                .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.white)
-                .background(.black)
-                .cornerRadius(20)
-                .alert("A journal entry needs a title and an entry :) Try again", isPresented: $journalEntryViewModel.emptyEntry) {
-                    Button("<3", role: .cancel) {
-                        journalEntryViewModel.setFalse()
+                    .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .cornerRadius(20)
+                    .alert("A journal entry needs a title and an entry :) Try again", isPresented: $journalEntryViewModel.emptyEntry) {
+                        Button("<3", role: .cancel) {
+                            journalEntryViewModel.setFalse()
+                        }
                     }
-                }
-                .alert("Successfully entered, cutie ;)", isPresented: $journalEntryViewModel.successfulEntry) {
-                    Button("<3", role: .cancel) {
-                        journalEntryViewModel.setFalse()
-                        title = ""
-                        entry = ""
-                        links = []
+                    .alert("Successfully entered, cutie ;)", isPresented: $journalEntryViewModel.successfulEntry) {
+                        Button("<3", role: .cancel) {
+                            journalEntryViewModel.setFalse()
+                            title = ""
+                            entry = ""
+                            links = []
+                        }
                     }
-                }
+                    .alert("Successfully entered, cutie ;)", isPresented: $emotionDataViewModel.successfulEntryEmotion) {
+                        Button("<3", role: .cancel) {
+                            journalEntryViewModel.setFalse()
+                            emotionDataViewModel.setFalse()
+                            title = ""
+                            entry = ""
+                            links = []
+                        }
+                    }
                 Spacer()
                     .frame(width: 20)
             }
-            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
         }
     }
 }

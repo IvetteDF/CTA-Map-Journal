@@ -9,10 +9,18 @@ import SwiftUI
 import Firebase
 
 struct AllJournalEntriesView: View {
-//    @State var allJournalEntries: [JournalEntry]
+    
     @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
+    
     @State private var showingJournalEntry = false
-    @State var selectedJournalEntry: JournalEntry = JournalEntry(id: "", title: "", timestamp: Timestamp(seconds: 0, nanoseconds: 0), date: "", entry: "", links: [""], station_name: "", end_station_name: "")
+    @State var selectedJournalEntry: JournalEntry = JournalEntry(id: "",
+                                                                 title: "",
+                                                                 timestamp: Timestamp(seconds: 0, nanoseconds: 0),
+                                                                 date: "",
+                                                                 entry: "",
+                                                                 links: [""],
+                                                                 station_name: "",
+                                                                 end_station_name: "")
     
     var body: some View {
         List(journalEntryViewModel.allJournalEntries.sorted(by: { lhs, rhs in
@@ -26,16 +34,16 @@ struct AllJournalEntriesView: View {
                     Text(journalEntry.date)
                     Text(journalEntry.title)
                 }
-                .foregroundColor(.black)
+                    .foregroundColor(.black)
             })
-            .sheet(isPresented: $showingJournalEntry) {
-                    SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
+                .sheet(isPresented: $showingJournalEntry) {
+                        SelectedJournalEntryView(selectedJournalEntry: $selectedJournalEntry)
+                }
+                .navigationTitle("All Journal Entries")
         }
-        .navigationTitle("All Journal Entries")
-        }
-        .onAppear {
-            journalEntryViewModel.getAllJournalEntries()
-        }
+            .onAppear {
+                journalEntryViewModel.getAllJournalEntries()
+            }
     }
 }
 
