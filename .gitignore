@@ -116,5 +116,5 @@ xcuserdata
 # End of https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,firebase,xcode
 
 ### Project Files ###
-CTA-Map-Journal/Secrets.swift
-CTA-Map-Journal/CTA-Map-Journal/GoogleService-Info.plist
+Secrets.swift
+GoogleService-Info.plist
