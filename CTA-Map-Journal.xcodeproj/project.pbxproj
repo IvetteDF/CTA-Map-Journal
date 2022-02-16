@@ -33,7 +33,6 @@
 		2367A5DE27AD8D390085B40F /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5DD27AD8D390085B40F /* PieChartView.swift */; };
 		2367A5E427ADBBE10085B40F /* EmotionSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E327ADBBE10085B40F /* EmotionSliceView.swift */; };
 		2367A5E627ADBBF70085B40F /* EmotionChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E527ADBBF70085B40F /* EmotionChartView.swift */; };
-		2367A5E827B098D70085B40F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2367A5E727B098D50085B40F /* Theme.swift */; };
 		23EA8BC227B3909100DA8053 /* CTALStopsFixed.json in Resources */ = {isa = PBXBuildFile; fileRef = 23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */; };
 		23EA8BC727B6CAE800DA8053 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BC627B6CAE800DA8053 /* MapView.swift */; };
 		23EA8BC927B8561600DA8053 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */; };
@@ -83,7 +82,6 @@
 		2367A5DD27AD8D390085B40F /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		2367A5E327ADBBE10085B40F /* EmotionSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionSliceView.swift; sourceTree = "<group>"; };
 		2367A5E527ADBBF70085B40F /* EmotionChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionChartView.swift; sourceTree = "<group>"; };
-		2367A5E727B098D50085B40F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		23EA8BC127B3909100DA8053 /* CTALStopsFixed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CTALStopsFixed.json; sourceTree = "<group>"; };
 		23EA8BC627B6CAE800DA8053 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				23043BF627A74CC100F9EDCF /* JournalEntryViewModel.swift */,
 				23043C0027A84A4100F9EDCF /* TrainStationViewModel.swift */,
 				2367A5D027AB9E790085B40F /* EmotionDataViewModel.swift */,
-				2367A5E727B098D50085B40F /* Theme.swift */,
 				23EA8BC827B8561500DA8053 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -317,7 +314,6 @@
 				2341DD7E27A9FF9D004E32CC /* TrainLines.swift in Sources */,
 				2367A5D327AC444F0085B40F /* Secrets.swift in Sources */,
 				23043BFF27A83FF100F9EDCF /* TrainStation.swift in Sources */,
-				2367A5E827B098D70085B40F /* Theme.swift in Sources */,
 				2367A5CF27AB99700085B40F /* EmotionData.swift in Sources */,
 				2341DD7C27A9CD02004E32CC /* SelectedJournalEntryView.swift in Sources */,
 				23043BEF27A7496F00F9EDCF /* NewJournalEntryView.swift in Sources */,

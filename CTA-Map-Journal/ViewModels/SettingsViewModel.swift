@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class SettingsViewModel: ObservableObject {
+    
     @Published var angerColor: String = "Red"
     @Published var disgustColor: String = "Green"
     @Published var fearColor: String = "Blue"

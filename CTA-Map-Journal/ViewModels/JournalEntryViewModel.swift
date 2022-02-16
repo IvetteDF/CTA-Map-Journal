@@ -22,12 +22,7 @@ class JournalEntryViewModel: ObservableObject {
             if error == nil {
                 // no errors
                 DispatchQueue.main.async {
-                    // UI updates
-//                    self.journalEntries.removeAll { journalEntry in
-//                        return journalEntry.id == entryToDelete.id
-//                    }
                     print("Deleted \(entryToDelete.title)")
-//                    self.getJournalEntries(selectedTrainStationName: entryToDelete.station_name)
                 }
             } else {
                 // error handling
@@ -100,16 +95,20 @@ class JournalEntryViewModel: ObservableObject {
         }
     }
     
-    func addJournalEntry(title: String, entry: String, links: [String], station_name: String, end_station_name: String = "", analyzeEmotion: Bool = false, emotionScores: [String:Double] = [:]) {
+    func addJournalEntry(title: String,
+                         entry: String,
+                         links: [String],
+                         station_name: String,
+                         end_station_name: String = "",
+                         analyzeEmotion: Bool = false,
+                         emotionScores: [String:Double] = [:]) {
         // check for empty entry or title
         if ((entry == "") || (title == "")) {
             self.emptyEntry = true
             return
         }
-        
         // add a timestamp
         let timestamp: Date = Date()
-        
         let db = Firestore.firestore()
         db.collection("JournalEntries")
             .addDocument(data: ["title":title,
@@ -124,9 +123,6 @@ class JournalEntryViewModel: ObservableObject {
                 // success message
                 print("added Journal Entry")
                 self.successfulEntry = true
-//                print(self.successfulEntry)
-                
-                // add logic to include notification of successful post
             } else {
                 print(error!)
             }
@@ -136,6 +132,5 @@ class JournalEntryViewModel: ObservableObject {
     func setFalse() {
         self.successfulEntry = false
         self.emptyEntry = false
-//        print("empty entry\(self.emptyEntry)")
     }
 }

@@ -12,14 +12,13 @@ import MapKit
 
 final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
+    @ObservedObject var nearestTrainStation: TrainStation
+    
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.878871700000005, longitude: -87.63590784114558),
                                                span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
     @Published var userLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
-    @ObservedObject var nearestTrainStation: TrainStation
     @Published var allTrainStations: [TrainStation] = []
     @Published var allTrainStationsNames: [String] = []
-//    @Published var allTrainStationsLocations: [(String, UUID, CLLocationCoordinate2D)] = []
-    
     
     let locationManager = CLLocationManager()
     
@@ -31,7 +30,6 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
     
     func requestLocationAndFindNearestTrainStation() {
         locationManager.requestLocation()
-        print("button clicked")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -65,9 +63,6 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
                 self.nearestTrainStation = trainStation
             }
         }
-        print("*****")
-        print(self.userLocation)
-        print(self.nearestTrainStation.station_name!)
     }
     
     func makeAllTrainStations() {
@@ -105,34 +100,4 @@ final class NearestTrainStationViewModel: NSObject, ObservableObject, CLLocation
         }
         
     }
-    
-    
-    func checkHasJournalEntries() {
-        @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
-        self.makeAllTrainStations()
-        for trainStation in self.allTrainStations {
-            print(trainStation.station_name!)
-            journalEntryViewModel.getJournalEntries(selectedTrainStationName: trainStation.station_name!)
-//            if journalEntryViewModel.journalEntries.count != 0 {
-//                trainStation.hasJournalEntries = true
-//            }
-        }
-    }
-    
-//    func makeAllTrainStationsLocations() {
-//        makeAllTrainStations()
-//        for trainStation in self.allTrainStations {
-//            self.allTrainStationsLocations.append((trainStation.station_name!, UUID() ,trainStation.location!.clLocation))
-//        }
-//    }
-    
-//    func makeJournalEntryMapMarkers() {
-//        @ObservedObject var journalEntryViewModel = JournalEntryViewModel()
-//
-//        journalEntryViewModel.getAllJournalEntries()
-//        let allJournalEntries = journalEntryViewModel.allJournalEntries
-//
-//        self.makeAllTrainStationsLocations()
-//        let locations = self.allTrainStationsLocations
-//    }
 }
